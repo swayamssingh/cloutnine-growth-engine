@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, FAQ, MetricCard } from "@/components/site/Section";
 import { AuditForm } from "@/components/site/AuditForm";
+import { VideoHero } from "@/components/site/VideoHero";
 import { faqSchema, jsonLd } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 
@@ -87,62 +88,8 @@ const SERVICES = [
 function Index() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-[color:var(--color-hairline)] grain">
-        <div className="container-x pt-16 pb-24 md:pt-24 md:pb-32">
-          <span className="eyebrow">Mumbai · Est. 2021</span>
-          <h1 className="display-xl mt-8 max-w-[18ch]">
-            Social media that <span className="text-primary">prints pipeline</span>.
-          </h1>
-          <div className="mt-10 grid lg:grid-cols-12 gap-12 items-end">
-            <p className="lg:col-span-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
-              CloutNine is a performance-driven social media agency in Mumbai. We
-              connect content, ads, websites and WhatsApp into one growth engine —
-              so every post you publish has a job, and every rupee of ad spend has
-              an outcome.
-            </p>
-            <div className="lg:col-span-6 flex flex-wrap gap-3 lg:justify-end">
-              <Link
-                to="/contact"
-                className="inline-flex h-12 items-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground"
-              >
-                Get Your Free Audit →
-              </Link>
-              <Link
-                to="/case-studies"
-                className="inline-flex h-12 items-center rounded-full border border-border-strong px-6 text-sm hover:bg-surface transition"
-              >
-                See the work
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Marquee */}
-        <div className="border-y border-[color:var(--color-hairline)] py-5 overflow-hidden">
-          <div className="marquee-track flex w-max gap-12 whitespace-nowrap text-muted-foreground text-sm uppercase tracking-[0.2em]">
-            {Array.from({ length: 2 }).flatMap((_, i) =>
-              [
-                "D2C Brands",
-                "Restaurants",
-                "Real Estate",
-                "Fitness",
-                "SaaS",
-                "Retail",
-                "Hospitality",
-                "Healthcare",
-                "Education",
-                "Fashion",
-              ].map((t) => (
-                <span key={`${i}-${t}`} className="flex items-center gap-12">
-                  <span>{t}</span>
-                  <span className="text-primary">●</span>
-                </span>
-              ))
-            )}
-          </div>
-        </div>
-      </section>
+      {/* HERO — Video */}
+      <VideoHero />
 
       {/* PROOF METRICS */}
       <Section className="!py-20" eyebrow="Receipts" title="The numbers we're hired to move.">
