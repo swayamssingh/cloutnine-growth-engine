@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { SITE } from "@/lib/seo";
+import { LogoMark } from "@/components/site/Logo";
 
 const SERVICES = [
   { to: "/services/social-media-marketing-mumbai", label: "Social Media Marketing" },
@@ -29,8 +30,9 @@ export function Footer() {
       <div className="container-x py-20">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2">
-            <div className="display text-3xl">
-              Clout<span className="text-primary">Nine</span>
+            <div className="flex items-center gap-3">
+              <LogoMark className="h-9 w-9 text-foreground" />
+              <div className="display text-3xl">CloutNine</div>
             </div>
             <p className="mt-4 text-sm text-muted-foreground max-w-xs">
               A performance-driven social media agency in Mumbai. We turn content
@@ -38,7 +40,7 @@ export function Footer() {
             </p>
             <Link
               to="/contact"
-              className="mt-6 inline-flex h-11 items-center rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground"
+              className="glass mt-6 inline-flex h-11 items-center rounded-full px-5 text-sm font-medium text-foreground"
             >
               Get Your Free Audit →
             </Link>
@@ -79,7 +81,7 @@ function FooterCol({
           <li key={i.to}>
             <Link
               to={i.to}
-              className="text-sm text-foreground/80 hover:text-primary transition-colors"
+              className="text-sm text-foreground/80 hover:text-foreground transition-colors"
             >
               {i.label}
             </Link>
