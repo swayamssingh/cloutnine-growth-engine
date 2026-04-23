@@ -9,6 +9,8 @@ import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { StickyWhatsApp } from "@/components/site/StickyWhatsApp";
+import { ThemeProvider } from "@/components/site/ThemeProvider";
+import { AuroraCursor } from "@/components/site/AuroraCursor";
 import { localBusinessSchema, jsonLd } from "@/lib/seo";
 
 function NotFoundComponent() {
@@ -73,13 +75,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <Header />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-      <StickyWhatsApp />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-background text-foreground">
+        <AuroraCursor />
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+        <StickyWhatsApp />
+      </div>
+    </ThemeProvider>
   );
 }
