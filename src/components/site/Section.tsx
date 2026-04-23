@@ -55,7 +55,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
 
 export function MetricCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="border-t border-border-strong pt-6">
+    <div className="border-t border-[color:var(--color-border-strong)] pt-6">
       <div className="display text-5xl md:text-6xl tracking-tight">{value}</div>
       <div className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
         {label}
