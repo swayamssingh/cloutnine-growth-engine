@@ -75,7 +75,7 @@ export function AuditForm({ compact = false }: { compact?: boolean }) {
 
       <button
         type="submit"
-        className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
+        className="glass-solid mt-6 inline-flex h-12 w-full items-center justify-center rounded-full px-6 text-sm font-medium"
       >
         {sent ? "Sent — opening WhatsApp…" : "Get My Free Audit →"}
       </button>
@@ -100,7 +100,7 @@ function Field({
   multiline?: boolean;
 }) {
   const cls =
-    "w-full bg-transparent border-b border-border focus:border-primary outline-none py-2 text-base transition-colors";
+    "w-full bg-transparent border-b border-border focus:border-foreground outline-none py-2 text-base transition-colors";
   return (
     <label className="block">
       <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">

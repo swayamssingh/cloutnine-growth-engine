@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { LogoMark } from "@/components/site/Logo";
+import { ThemeToggle } from "@/components/site/ThemeProvider";
 
 const NAV = [
   { to: "/services/social-media-marketing-mumbai", label: "Services" },
   { to: "/industries/restaurants", label: "Industries" },
-  { to: "/locations/andheri", label: "Locations" },
   { to: "/case-studies", label: "Work" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/blog", label: "Insights" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -16,18 +16,16 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--color-hairline)] bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-[color:var(--color-hairline)] bg-background/70 backdrop-blur-xl">
       <div className="container-x flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="display text-2xl md:text-3xl tracking-tight">
-            Clout<span className="text-primary">Nine</span>
-          </span>
-          <span className="hidden md:inline text-[10px] uppercase tracking-[0.25em] text-muted-foreground border-l border-border pl-2 ml-1">
-            Mumbai
+        <Link to="/" className="flex items-center gap-3 group">
+          <LogoMark className="h-8 w-8 text-foreground transition-transform group-hover:rotate-[8deg]" />
+          <span className="display text-2xl md:text-[1.7rem] tracking-tight">
+            CloutNine
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-8">
           {NAV.map((n) => (
             <Link
               key={n.to}
@@ -41,15 +39,16 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link
             to="/contact"
-            className="hidden md:inline-flex h-10 items-center rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
+            className="glass hidden md:inline-flex h-10 items-center rounded-full px-5 text-sm font-medium text-foreground"
           >
             Free Audit →
           </Link>
           <button
             onClick={() => setOpen((s) => !s)}
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center border border-border rounded-full"
+            className="glass lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full"
             aria-label="Menu"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -73,7 +72,7 @@ export function Header() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground"
+              className="glass mt-2 inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-medium text-foreground"
             >
               Get Your Free Audit
             </Link>

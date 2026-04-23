@@ -32,13 +32,13 @@ export function LandingPage(props: LandingPageProps) {
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex h-12 items-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground"
+                  className="glass-solid inline-flex h-12 items-center rounded-full px-6 text-sm font-medium"
                 >
                   Get Your Free Audit →
                 </Link>
                 <Link
                   to="/case-studies"
-                  className="inline-flex h-12 items-center rounded-full border border-border-strong px-6 text-sm hover:bg-surface transition"
+                  className="glass inline-flex h-12 items-center rounded-full px-6 text-sm text-foreground"
                 >
                   See the work
                 </Link>
@@ -122,7 +122,7 @@ export function LandingPage(props: LandingPageProps) {
               </p>
               <Link
                 to="/contact"
-                className="mt-6 inline-flex h-12 items-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground"
+                className="glass-solid mt-6 inline-flex h-12 items-center rounded-full px-6 text-sm font-medium"
               >
                 Get Your Free Audit →
               </Link>
