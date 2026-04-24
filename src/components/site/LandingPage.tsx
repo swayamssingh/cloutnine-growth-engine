@@ -62,15 +62,27 @@ export function LandingPage(props: LandingPageProps) {
 
       {/* Deliverables */}
       <Section eyebrow="What you get" title="Built as a system, not deliverables.">
-        <div className="grid md:grid-cols-2 gap-px bg-[color:var(--color-hairline)] border border-[color:var(--color-hairline)]">
-          {props.deliverables.map((d) => (
-            <div key={d.title} className="bg-background p-8 md:p-10">
-              <h3 className="font-sans text-xl font-medium normal-case tracking-normal">
-                {d.title}
-              </h3>
-              <p className="mt-3 text-muted-foreground">{d.body}</p>
-            </div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-5">
+          {props.deliverables.map((d, i) => {
+            const tints = [
+              "var(--wave-blue)",
+              "var(--wave-purple)",
+              "var(--wave-pink)",
+              "var(--wave-orange)",
+            ];
+            return (
+              <div
+                key={d.title}
+                className="card-tint p-8 md:p-10"
+                style={{ ["--tint" as never]: tints[i % tints.length] }}
+              >
+                <h3 className="font-sans text-xl font-medium normal-case tracking-normal">
+                  {d.title}
+                </h3>
+                <p className="mt-3 text-muted-foreground">{d.body}</p>
+              </div>
+            );
+          })}
         </div>
       </Section>
 
@@ -79,7 +91,7 @@ export function LandingPage(props: LandingPageProps) {
         <div className="grid md:grid-cols-4 gap-8">
           {props.process.map((p) => (
             <div key={p.step}>
-              <div className="display text-5xl text-primary">{p.step}</div>
+              <div className="display text-5xl">{p.step}</div>
               <h4 className="mt-4 text-base font-medium">{p.title}</h4>
               <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
             </div>
@@ -95,7 +107,7 @@ export function LandingPage(props: LandingPageProps) {
               key={p}
               className="flex items-start gap-3 border border-border rounded-xl p-5 bg-surface"
             >
-              <Check className="mt-0.5 h-5 w-5 text-primary shrink-0" />
+              <Check className="mt-0.5 h-5 w-5 text-foreground shrink-0" />
               <span className="text-sm md:text-base">{p}</span>
             </li>
           ))}
@@ -109,7 +121,14 @@ export function LandingPage(props: LandingPageProps) {
 
       {/* CTA */}
       <Section className="!pt-12">
-        <div className="rounded-2xl border border-border bg-surface p-10 md:p-16 grain">
+        <div
+          className="card-tint section-glow grain p-10 md:p-16"
+          style={{
+            ["--tint" as never]: "var(--wave-blue)",
+            ["--glow-a" as never]: "var(--wave-purple)",
+            ["--glow-b" as never]: "var(--wave-orange)",
+          }}
+        >
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <h2 className="display-lg">
               {props.ctaTitle || "Want to see what we'd do for you?"}

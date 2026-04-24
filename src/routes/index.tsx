@@ -112,23 +112,33 @@ function Index() {
         }
         intro="Most agencies sell pieces. We assemble the whole machine — and operate it weekly."
       >
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[color:var(--color-hairline)] border border-[color:var(--color-hairline)]">
-          {SERVICES.map((s) => (
-            <Link
-              key={s.n}
-              to={s.to}
-              className="group bg-background p-8 md:p-10 hover:bg-surface transition-colors"
-            >
-              <div className="flex items-start justify-between">
-                <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                  {s.n}
-                </span>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </div>
-              <h3 className="display text-3xl mt-10">{s.title}</h3>
-              <p className="mt-4 text-muted-foreground">{s.body}</p>
-            </Link>
-          ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SERVICES.map((s, i) => {
+            const tints = [
+              "var(--wave-blue)",
+              "var(--wave-purple)",
+              "var(--wave-pink)",
+              "var(--wave-orange)",
+              "var(--wave-yellow)",
+            ];
+            return (
+              <Link
+                key={s.n}
+                to={s.to}
+                className="card-tint group p-8 md:p-10 block"
+                style={{ ["--tint" as never]: tints[i % tints.length] }}
+              >
+                <div className="flex items-start justify-between">
+                  <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                    {s.n}
+                  </span>
+                  <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </div>
+                <h3 className="display text-3xl mt-10">{s.title}</h3>
+                <p className="mt-4 text-muted-foreground">{s.body}</p>
+              </Link>
+            );
+          })}
         </div>
       </Section>
 
@@ -152,14 +162,18 @@ function Index() {
 
       {/* CASE STUDY TEASER */}
       <Section eyebrow="Selected work" title="Outcomes, not dashboards.">
-        <div className="grid md:grid-cols-3 gap-px bg-[color:var(--color-hairline)] border border-[color:var(--color-hairline)]">
+        <div className="grid md:grid-cols-3 gap-5">
           {[
-            { tag: "D2C Skincare · Mumbai", h: "₹5L → ₹25L MRR in 6 months", b: "Reels-led top-of-funnel + Meta retargeting + WhatsApp recovery." },
-            { tag: "Restaurant · Bandra", h: "31% lift in dine-in covers", b: "Geo-targeted Reels + Click-to-WhatsApp reservations." },
-            { tag: "Real Estate · Powai", h: "212 site-visits in 90 days", b: "Lead-gen ads + landing page + on-call WhatsApp triage." },
+            { tag: "D2C Skincare · Mumbai", h: "₹5L → ₹25L MRR in 6 months", b: "Reels-led top-of-funnel + Meta retargeting + WhatsApp recovery.", tint: "var(--wave-pink)" },
+            { tag: "Restaurant · Bandra", h: "31% lift in dine-in covers", b: "Geo-targeted Reels + Click-to-WhatsApp reservations.", tint: "var(--wave-orange)" },
+            { tag: "Real Estate · Powai", h: "212 site-visits in 90 days", b: "Lead-gen ads + landing page + on-call WhatsApp triage.", tint: "var(--wave-blue)" },
           ].map((c) => (
-            <div key={c.h} className="bg-background p-8 md:p-10">
-              <span className="text-[11px] uppercase tracking-[0.22em] text-primary">
+            <div
+              key={c.h}
+              className="card-tint p-8 md:p-10"
+              style={{ ["--tint" as never]: c.tint }}
+            >
+              <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                 {c.tag}
               </span>
               <h3 className="display text-3xl mt-6">{c.h}</h3>
@@ -179,12 +193,16 @@ function Index() {
 
       {/* TESTIMONIALS */}
       <Section eyebrow="What clients say" title="">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {[
-            { q: "They run our growth stack like a CFO would. Every rupee has a number against it.", n: "Aarav Mehta", r: "Founder, D2C Skincare" },
-            { q: "We replaced three vendors with CloutNine. Output went up, drama went down.", n: "Priya Shah", r: "Head of Marketing, Restaurant Group" },
+            { q: "They run our growth stack like a CFO would. Every rupee has a number against it.", n: "Aarav Mehta", r: "Founder, D2C Skincare", tint: "var(--wave-blue)" },
+            { q: "We replaced three vendors with CloutNine. Output went up, drama went down.", n: "Priya Shah", r: "Head of Marketing, Restaurant Group", tint: "var(--wave-purple)" },
           ].map((t) => (
-            <figure key={t.n} className="border border-border rounded-2xl p-8 bg-surface">
+            <figure
+              key={t.n}
+              className="card-tint p-8"
+              style={{ ["--tint" as never]: t.tint }}
+            >
               <blockquote className="text-xl md:text-2xl leading-snug">
                 "{t.q}"
               </blockquote>
@@ -203,12 +221,19 @@ function Index() {
 
       {/* AUDIT CTA */}
       <Section className="!pt-12">
-        <div className="rounded-2xl border border-border bg-surface grain p-8 md:p-14">
+        <div
+          className="card-tint section-glow grain p-8 md:p-14"
+          style={{
+            ["--tint" as never]: "var(--wave-blue)",
+            ["--glow-a" as never]: "var(--wave-purple)",
+            ["--glow-b" as never]: "var(--wave-pink)",
+          }}
+        >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="eyebrow">Free Audit</span>
               <h2 className="display-lg mt-6">
-                Find the <span className="text-primary">leak</span> before you fix it.
+                Find the leak before you fix it.
               </h2>
               <p className="mt-6 text-muted-foreground max-w-xl">
                 We tear down your content, ads and funnel and send back a Loom +
