@@ -1,16 +1,16 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Aurora-style cursor follower. Soft, multi-color blurred glow that trails the
- * cursor with smooth lerp easing. Brightens over interactive elements and
- * fades when idle.
+ * Tight aurora cursor. Small radius, controlled glow, locked to cursor position
+ * with a single-frame lerp so it feels precise — never trailing or drifting.
+ * Visible only while the cursor is moving; fades quickly when idle.
  */
 export function AuroraCursor() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.matchMedia?.("(pointer: coarse)").matches) return; // skip on touch
+    if (window.matchMedia?.("(pointer: coarse)").matches) return;
 
     const el = ref.current;
     if (!el) return;
@@ -19,15 +19,23 @@ export function AuroraCursor() {
     const pos = { x: target.x, y: target.y };
     let raf = 0;
     let idleTimer: number | undefined;
+    let moving = false;
 
     const onMove = (e: MouseEvent) => {
       target.x = e.clientX;
       target.y = e.clientY;
+      if (!moving) {
+        // snap on first movement to avoid catch-up drift
+        pos.x = target.x;
+        pos.y = target.y;
+        moving = true;
+      }
       el.classList.add("is-active");
       window.clearTimeout(idleTimer);
       idleTimer = window.setTimeout(() => {
         el.classList.remove("is-active");
-      }, 900);
+        moving = false;
+      }, 220);
 
       const t = e.target as HTMLElement | null;
       const interactive = t?.closest(
@@ -37,9 +45,10 @@ export function AuroraCursor() {
     };
 
     const tick = () => {
-      pos.x += (target.x - pos.x) * 0.18;
-      pos.y += (target.y - pos.y) * 0.18;
-      el.style.transform = `translate(${pos.x}px, ${pos.y}px) translate(-50%, -50%)`;
+      // very tight smoothing — feels locked to the cursor
+      pos.x += (target.x - pos.x) * 0.55;
+      pos.y += (target.y - pos.y) * 0.55;
+      el.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) translate(-50%, -50%)`;
       raf = requestAnimationFrame(tick);
     };
 
