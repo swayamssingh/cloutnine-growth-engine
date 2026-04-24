@@ -48,7 +48,10 @@ export function VideoHero() {
               >
                 Clout that
                 <br />
-                <span className="italic font-light" style={{ fontFamily: "var(--font-sans)", letterSpacing: "-0.04em" }}>
+                <span
+                  className="text-aurora italic font-light"
+                  style={{ fontFamily: "var(--font-sans)", letterSpacing: "-0.04em" }}
+                >
                   converts
                 </span>
                 <span className="text-white">.</span>
