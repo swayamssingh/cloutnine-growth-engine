@@ -456,6 +456,31 @@
   .light .section-glow::before,
   .light .section-glow::after { opacity: 0.16; }
 
+  /* ============ SIGNATURE GRADIENT TEXT ============ */
+  /* Brand signature — use sparingly on a single word in hero/section headlines */
+  .text-aurora {
+    background: linear-gradient(
+      90deg,
+      #3D4DFF 0%,
+      #8A2BFF 18%,
+      #FF2DB6 36%,
+      #FF3B30 54%,
+      #FF8A00 72%,
+      #FFD800 88%,
+      #FFF4E6 100%
+    );
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+            color: transparent;
+    /* slight desaturation for premium feel */
+    filter: saturate(0.88);
+    /* keep edges sharp — no glow, no blur */
+    text-shadow: none;
+    display: inline-block;
+  }
+
   /* Hairline divider with a soft color sweep */
   .rule-aurora {
     height: 1px;
