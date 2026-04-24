@@ -221,12 +221,19 @@ function Index() {
 
       {/* AUDIT CTA */}
       <Section className="!pt-12">
-        <div className="rounded-2xl border border-border bg-surface grain p-8 md:p-14">
+        <div
+          className="card-tint section-glow grain p-8 md:p-14"
+          style={{
+            ["--tint" as never]: "var(--wave-blue)",
+            ["--glow-a" as never]: "var(--wave-purple)",
+            ["--glow-b" as never]: "var(--wave-pink)",
+          }}
+        >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="eyebrow">Free Audit</span>
               <h2 className="display-lg mt-6">
-                Find the <span className="text-primary">leak</span> before you fix it.
+                Find the leak before you fix it.
               </h2>
               <p className="mt-6 text-muted-foreground max-w-xl">
                 We tear down your content, ads and funnel and send back a Loom +
