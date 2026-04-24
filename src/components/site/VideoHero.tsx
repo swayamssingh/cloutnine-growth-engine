@@ -38,24 +38,31 @@ export function VideoHero() {
             </div>
 
             <div className="max-w-5xl">
-              <h1
-                className="display text-white"
-                style={{
-                  fontSize: "clamp(3.25rem, 11vw, 10.5rem)",
-                  lineHeight: 0.88,
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                Clout that
-                <br />
+              <h1 className="text-white" style={{ lineHeight: 0.86 }}>
                 <span
-                  className="text-aurora italic font-light"
-                  style={{ fontFamily: "var(--font-sans)", letterSpacing: "-0.04em" }}
+                  className="block italic font-normal text-white/95"
+                  style={{
+                    fontFamily: "'Instrument Serif', Georgia, serif",
+                    fontSize: "clamp(2.5rem, 8vw, 7.5rem)",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 0.95,
+                  }}
                 >
-                  converts
+                  Clout <span className="text-white/70">that</span>
                 </span>
-                <span className="text-white">.</span>
+                <span
+                  className="display block text-white uppercase"
+                  style={{
+                    fontSize: "clamp(4rem, 14vw, 13rem)",
+                    letterSpacing: "-0.025em",
+                    lineHeight: 0.85,
+                    marginTop: "0.05em",
+                  }}
+                >
+                  Converts<span className="text-white/40">.</span>
+                </span>
               </h1>
+
 
               <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-3">
                 <Link
