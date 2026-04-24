@@ -92,6 +92,15 @@
   --glass-border: oklch(1 0 0 / 18%);
   --glass-highlight: oklch(1 0 0 / 35%);
   --glass-shadow: 0 10px 40px -10px oklch(0 0 0 / 60%);
+
+  /* Wave palette — accents only, used at very low opacity */
+  --wave-blue: #3D4DFF;
+  --wave-purple: #8A2BFF;
+  --wave-pink: #FF2DB6;
+  --wave-red: #FF3B30;
+  --wave-orange: #FF8A00;
+  --wave-yellow: #FFD800;
+  --wave-cream: #FFF4E6;
 }
 
 /* LIGHT */
@@ -263,10 +272,11 @@
   }
   .glass:hover {
     background: var(--color-glass-strong);
-    border-color: var(--color-glass-border);
+    border-color: color-mix(in oklab, var(--wave-blue) 22%, var(--color-glass-border));
     transform: translateY(-1px) scale(1.02);
     box-shadow:
       inset 0 1px 0 0 var(--glass-highlight),
+      0 0 0 1px color-mix(in oklab, var(--wave-purple) 8%, transparent),
       0 18px 60px -12px oklch(0 0 0 / 70%);
   }
   .glass-solid {
@@ -280,46 +290,44 @@
     opacity: 0.92;
   }
 
-  /* ============ AURORA CURSOR ============ */
+  /* ============ AURORA CURSOR (tight, controlled) ============ */
   .aurora-cursor {
     position: fixed;
     top: 0;
     left: 0;
-    width: 360px;
-    height: 360px;
+    width: 70px;
+    height: 70px;
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-50%, -50%);
     border-radius: 9999px;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.18s ease, width 0.2s ease, height 0.2s ease, filter 0.2s ease;
     mix-blend-mode: screen;
-    filter: blur(40px);
+    filter: blur(14px) saturate(140%);
     background: conic-gradient(
       from 0deg,
-      oklch(0.7 0.25 280 / 0.35),
-      oklch(0.75 0.22 200 / 0.35),
-      oklch(0.78 0.2 150 / 0.35),
-      oklch(0.8 0.22 80 / 0.35),
-      oklch(0.7 0.25 330 / 0.35),
-      oklch(0.7 0.25 280 / 0.35)
+      oklch(from #3D4DFF l c h / 0.18),
+      oklch(from #8A2BFF l c h / 0.18),
+      oklch(from #FF2DB6 l c h / 0.18),
+      oklch(from #FF3B30 l c h / 0.16),
+      oklch(from #FF8A00 l c h / 0.18),
+      oklch(from #FFD800 l c h / 0.18),
+      oklch(from #3D4DFF l c h / 0.18)
     );
-    animation: aurora-spin 8s linear infinite;
+    will-change: transform, opacity;
   }
   .light .aurora-cursor {
     mix-blend-mode: multiply;
-    opacity: 0;
+    filter: blur(16px) saturate(180%);
   }
   .aurora-cursor.is-active {
-    opacity: 1;
+    opacity: 0.9;
   }
   .aurora-cursor.is-hover {
-    width: 480px;
-    height: 480px;
+    width: 56px;
+    height: 56px;
+    filter: blur(10px) saturate(170%);
     opacity: 1;
-  }
-  @keyframes aurora-spin {
-    to { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
   /* hide native cursor on hero only — keep default cursor for app */
