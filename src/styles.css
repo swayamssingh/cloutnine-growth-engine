@@ -359,4 +359,116 @@
             mask-composite: exclude;
     pointer-events: none;
   }
+
+  /* ============ TINTED CARDS (Wave palette, low opacity) ============ */
+  .card-tint {
+    position: relative;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .card-tint::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        130% 90% at 0% 0%,
+        color-mix(in oklab, var(--tint, var(--wave-blue)) 10%, transparent) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        110% 80% at 100% 100%,
+        color-mix(in oklab, var(--tint-b, var(--tint, var(--wave-purple))) 7%, transparent) 0%,
+        transparent 60%
+      );
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  .card-tint::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      color-mix(in oklab, var(--tint, var(--wave-blue)) 28%, transparent),
+      transparent 55%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.55;
+    transition: opacity 0.4s ease;
+  }
+  .card-tint:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in oklab, var(--tint, var(--wave-blue)) 28%, var(--color-border));
+    box-shadow:
+      0 24px 60px -28px color-mix(in oklab, var(--tint, var(--wave-blue)) 55%, transparent),
+      0 0 0 1px color-mix(in oklab, var(--tint, var(--wave-blue)) 14%, transparent);
+  }
+  .card-tint:hover::after { opacity: 1; }
+  .card-tint > * { position: relative; z-index: 1; }
+
+  /* Section atmosphere — soft color glows behind sections */
+  .section-glow {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .section-glow::before,
+  .section-glow::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 60vw;
+    height: 60vw;
+    max-width: 900px;
+    max-height: 900px;
+    border-radius: 9999px;
+    filter: blur(140px);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .section-glow::before {
+    top: -25%;
+    left: -10%;
+    background: radial-gradient(
+      circle,
+      color-mix(in oklab, var(--glow-a, var(--wave-blue)) 24%, transparent),
+      transparent 60%
+    );
+  }
+  .section-glow::after {
+    bottom: -30%;
+    right: -10%;
+    background: radial-gradient(
+      circle,
+      color-mix(in oklab, var(--glow-b, var(--wave-purple)) 22%, transparent),
+      transparent 60%
+    );
+  }
+  .light .section-glow::before,
+  .light .section-glow::after { opacity: 0.16; }
+
+  /* Hairline divider with a soft color sweep */
+  .rule-aurora {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--wave-blue) 45%, transparent),
+      color-mix(in oklab, var(--wave-purple) 45%, transparent),
+      color-mix(in oklab, var(--wave-pink) 40%, transparent),
+      color-mix(in oklab, var(--wave-orange) 40%, transparent),
+      transparent
+    );
+    opacity: 0.4;
+  }
 }
