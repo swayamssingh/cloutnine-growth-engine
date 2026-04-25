@@ -215,7 +215,7 @@ function Index() {
       </Section>
 
       {/* FAQ */}
-      <Section eyebrow="FAQ" title="The questions you'd ask on a call.">
+      <Section eyebrow="FAQ" title={<>The <span className="text-aurora">questions</span> you'd ask on a call.</>}>
         <FAQ items={FAQS} />
       </Section>
 
