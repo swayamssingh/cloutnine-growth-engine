@@ -87,7 +87,7 @@ export function LandingPage(props: LandingPageProps) {
       </Section>
 
       {/* Process */}
-      <Section eyebrow="The process" title={<>From audit to compounding <span className="text-aurora">growth</span>.</>}>
+      <Section eyebrow="The process" title="From audit to compounding growth.">
         <div className="grid md:grid-cols-4 gap-8">
           {props.process.map((p) => (
             <div key={p.step}>
