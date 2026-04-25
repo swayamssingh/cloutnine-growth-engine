@@ -456,69 +456,24 @@
   .light .section-glow::before,
   .light .section-glow::after { opacity: 0.16; }
 
-  /* ============ SIGNATURE GRADIENT TEXT ============ */
-  /* Brand signature — use sparingly on a single word in hero/section headlines */
-  .text-aurora {
-    background: linear-gradient(
-      90deg,
-      #3D4DFF 0%,
-      #8A2BFF 18%,
-      #FF2DB6 36%,
-      #FF3B30 54%,
-      #FF8A00 72%,
-      #FFD800 88%,
-      #FFF4E6 100%
-    );
-    background-size: 100% 100%;
-    -webkit-background-clip: text;
-            background-clip: text;
-    -webkit-text-fill-color: transparent;
-            color: transparent;
-    /* slight desaturation for premium feel */
-    filter: saturate(0.88);
-    /* keep edges sharp — no glow, no blur */
+  /* ============ TEXT UTILITIES (monochrome) ============ */
+  /* Gradients removed — text is solid foreground only. Classes kept as no-ops
+     so any remaining usage stays safe. */
+  .text-aurora,
+  .logotype {
+    color: var(--color-foreground);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    filter: none;
     text-shadow: none;
-    display: inline-block;
-    transition: filter 0.3s ease;
-  }
-  .text-aurora:hover {
-    filter: saturate(0.95) brightness(1.08);
   }
 
-  /* ============ BRAND LOGOTYPE (navbar) ============ */
-  /* Custom CloutNine wordmark — tighter kerning, lower-intensity gradient */
   .logotype {
     font-family: var(--font-sans);
     font-weight: 600;
     letter-spacing: -0.035em;
     font-feature-settings: "ss01", "cv11";
-    background: linear-gradient(
-      90deg,
-      #3D4DFF 0%,
-      #8A2BFF 16%,
-      #FF2DB6 34%,
-      #FF3B30 52%,
-      #FF8A00 70%,
-      #FFD800 86%,
-      #FFF4E6 100%
-    );
-    -webkit-background-clip: text;
-            background-clip: text;
-    -webkit-text-fill-color: transparent;
-            color: transparent;
-    /* lower intensity than hero text */
-    filter: saturate(0.7) brightness(0.95);
-    text-shadow: none;
     display: inline-block;
-    transition: filter 0.3s ease;
-  }
-  .light .logotype {
-    filter: saturate(0.75) brightness(0.85);
-  }
-  .logotype:hover,
-  a:hover > .logotype,
-  .group:hover .logotype {
-    filter: saturate(0.78) brightness(1.05);
   }
 
   /* Hairline divider with a soft color sweep */

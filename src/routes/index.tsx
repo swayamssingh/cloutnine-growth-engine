@@ -92,7 +92,7 @@ function Index() {
       <VideoHero />
 
       {/* PROOF METRICS */}
-      <Section className="!py-20" eyebrow="Receipts" title={<>The <span className="text-aurora">numbers</span> we're hired to move.</>}>
+      <Section className="!py-20" eyebrow="Receipts" title="The numbers we're hired to move.">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <MetricCard value="120+" label="Brands grown" />
           <MetricCard value="₹14Cr" label="Ad spend managed" />
@@ -107,7 +107,7 @@ function Index() {
         title={
           <>
             One agency.<br />
-            <span className="text-muted-foreground">One <span className="text-aurora">growth</span> engine.</span>
+            <span className="text-muted-foreground">One growth engine.</span>
           </>
         }
         intro="Most agencies sell pieces. We assemble the whole machine — and operate it weekly."
@@ -143,7 +143,7 @@ function Index() {
       </Section>
 
       {/* PROCESS */}
-      <Section eyebrow="The system" title={<>How we <span className="text-aurora">operate</span>.</>}>
+      <Section eyebrow="The system" title="How we operate.">
         <div className="grid md:grid-cols-4 gap-10">
           {[
             { n: "01", t: "Audit", b: "Free 48-hour teardown of content, ads and funnel. Loom + written plan." },
@@ -161,7 +161,7 @@ function Index() {
       </Section>
 
       {/* CASE STUDY TEASER */}
-      <Section eyebrow="Selected work" title={<><span className="text-aurora">Outcomes</span>, not dashboards.</>}>
+      <Section eyebrow="Selected work" title="Outcomes, not dashboards.">
         <div className="grid md:grid-cols-3 gap-5">
           {[
             { tag: "D2C Skincare · Mumbai", h: "₹5L → ₹25L MRR in 6 months", b: "Reels-led top-of-funnel + Meta retargeting + WhatsApp recovery.", tint: "var(--wave-pink)" },
@@ -215,7 +215,7 @@ function Index() {
       </Section>
 
       {/* FAQ */}
-      <Section eyebrow="FAQ" title={<>The <span className="text-aurora">questions</span> you'd ask on a call.</>}>
+      <Section eyebrow="FAQ" title="The questions you'd ask on a call.">
         <FAQ items={FAQS} />
       </Section>
 

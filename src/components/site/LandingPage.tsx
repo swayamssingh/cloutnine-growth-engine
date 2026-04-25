@@ -61,7 +61,7 @@ export function LandingPage(props: LandingPageProps) {
       </Section>
 
       {/* Deliverables */}
-      <Section eyebrow="What you get" title={<>Built as a <span className="text-aurora">system</span>, not deliverables.</>}>
+      <Section eyebrow="What you get" title="Built as a system, not deliverables.">
         <div className="grid md:grid-cols-2 gap-5">
           {props.deliverables.map((d, i) => {
             const tints = [
@@ -87,7 +87,7 @@ export function LandingPage(props: LandingPageProps) {
       </Section>
 
       {/* Process */}
-      <Section eyebrow="The process" title={<>From audit to compounding <span className="text-aurora">growth</span>.</>}>
+      <Section eyebrow="The process" title="From audit to compounding growth.">
         <div className="grid md:grid-cols-4 gap-8">
           {props.process.map((p) => (
             <div key={p.step}>
@@ -100,7 +100,7 @@ export function LandingPage(props: LandingPageProps) {
       </Section>
 
       {/* Proof */}
-      <Section eyebrow="Why teams pick us" title={<>No fluff. Just systems that print <span className="text-aurora">pipeline</span>.</>}>
+      <Section eyebrow="Why teams pick us" title="No fluff. Just systems that print pipeline.">
         <ul className="grid md:grid-cols-2 gap-4 max-w-4xl">
           {props.proofPoints.map((p) => (
             <li
@@ -115,7 +115,7 @@ export function LandingPage(props: LandingPageProps) {
       </Section>
 
       {/* FAQ */}
-      <Section eyebrow="FAQ" title={<>Answers, <span className="text-aurora">fast</span>.</>}>
+      <Section eyebrow="FAQ" title="Answers, fast.">
         <FAQ items={props.faqs} />
       </Section>
 
