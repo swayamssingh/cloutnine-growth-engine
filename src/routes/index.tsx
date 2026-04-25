@@ -143,7 +143,7 @@ function Index() {
       </Section>
 
       {/* PROCESS */}
-      <Section eyebrow="The system" title={<>How we <span className="text-aurora">operate</span>.</>}>
+      <Section eyebrow="The system" title="How we operate.">
         <div className="grid md:grid-cols-4 gap-10">
           {[
             { n: "01", t: "Audit", b: "Free 48-hour teardown of content, ads and funnel. Loom + written plan." },
