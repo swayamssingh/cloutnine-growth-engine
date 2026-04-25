@@ -161,7 +161,7 @@ function Index() {
       </Section>
 
       {/* CASE STUDY TEASER */}
-      <Section eyebrow="Selected work" title="Outcomes, not dashboards.">
+      <Section eyebrow="Selected work" title={<><span className="text-aurora">Outcomes</span>, not dashboards.</>}>
         <div className="grid md:grid-cols-3 gap-5">
           {[
             { tag: "D2C Skincare · Mumbai", h: "₹5L → ₹25L MRR in 6 months", b: "Reels-led top-of-funnel + Meta retargeting + WhatsApp recovery.", tint: "var(--wave-pink)" },
