@@ -92,7 +92,7 @@ function Index() {
       <VideoHero />
 
       {/* PROOF METRICS */}
-      <Section className="!py-20" eyebrow="Receipts" title="The numbers we're hired to move.">
+      <Section className="!py-20" eyebrow="Receipts" title={<>The <span className="text-aurora">numbers</span> we're hired to move.</>}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <MetricCard value="120+" label="Brands grown" />
           <MetricCard value="₹14Cr" label="Ad spend managed" />
