@@ -61,7 +61,7 @@ export function LandingPage(props: LandingPageProps) {
       </Section>
 
       {/* Deliverables */}
-      <Section eyebrow="What you get" title={<>Built as a <span className="text-aurora">system</span>, not deliverables.</>}>
+      <Section eyebrow="What you get" title="Built as a system, not deliverables.">
         <div className="grid md:grid-cols-2 gap-5">
           {props.deliverables.map((d, i) => {
             const tints = [
