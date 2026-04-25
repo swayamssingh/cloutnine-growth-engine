@@ -20,7 +20,7 @@ export function Header() {
       <div className="container-x flex h-16 items-center justify-between md:h-20">
         <Link to="/" className="flex items-center gap-3 group">
           <LogoMark className="h-8 w-8 text-foreground transition-transform group-hover:rotate-[8deg]" />
-          <span className="display text-2xl md:text-[1.7rem] tracking-tight">
+          <span className="logotype text-xl md:text-[1.4rem] leading-none">
             CloutNine
           </span>
         </Link>
