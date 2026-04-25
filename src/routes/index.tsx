@@ -107,7 +107,7 @@ function Index() {
         title={
           <>
             One agency.<br />
-            <span className="text-muted-foreground">One <span className="text-aurora">growth</span> engine.</span>
+            <span className="text-muted-foreground">One growth engine.</span>
           </>
         }
         intro="Most agencies sell pieces. We assemble the whole machine — and operate it weekly."
