@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -19,6 +20,7 @@ import { Route as ServicesWebsiteDevelopmentMumbaiRouteImport } from './routes/s
 import { Route as ServicesSocialMediaMarketingMumbaiRouteImport } from './routes/services.social-media-marketing-mumbai'
 import { Route as ServicesMetaAdsManagementMumbaiRouteImport } from './routes/services.meta-ads-management-mumbai'
 import { Route as ServicesInstagramMarketingMumbaiRouteImport } from './routes/services.instagram-marketing-mumbai'
+import { Route as PortfolioWebsitesRouteImport } from './routes/portfolio.websites'
 import { Route as LocationsThaneRouteImport } from './routes/locations.thane'
 import { Route as LocationsPowaiRouteImport } from './routes/locations.powai'
 import { Route as LocationsBandraRouteImport } from './routes/locations.bandra'
@@ -27,10 +29,17 @@ import { Route as IndustriesRestaurantsRouteImport } from './routes/industries.r
 import { Route as IndustriesRealEstateRouteImport } from './routes/industries.real-estate'
 import { Route as IndustriesFitnessRouteImport } from './routes/industries.fitness'
 import { Route as IndustriesD2cBrandsRouteImport } from './routes/industries.d2c-brands'
+import { Route as PortfolioVideoContentIndustryRouteImport } from './routes/portfolio.video-content.$industry'
+import { Route as PortfolioAdCreativesIndustryRouteImport } from './routes/portfolio.ad-creatives.$industry'
 
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -83,6 +92,11 @@ const ServicesInstagramMarketingMumbaiRoute =
     path: '/services/instagram-marketing-mumbai',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PortfolioWebsitesRoute = PortfolioWebsitesRouteImport.update({
+  id: '/websites',
+  path: '/websites',
+  getParentRoute: () => PortfolioRoute,
+} as any)
 const LocationsThaneRoute = LocationsThaneRouteImport.update({
   id: '/locations/thane',
   path: '/locations/thane',
@@ -123,12 +137,25 @@ const IndustriesD2cBrandsRoute = IndustriesD2cBrandsRouteImport.update({
   path: '/industries/d2c-brands',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioVideoContentIndustryRoute =
+  PortfolioVideoContentIndustryRouteImport.update({
+    id: '/video-content/$industry',
+    path: '/video-content/$industry',
+    getParentRoute: () => PortfolioRoute,
+  } as any)
+const PortfolioAdCreativesIndustryRoute =
+  PortfolioAdCreativesIndustryRouteImport.update({
+    id: '/ad-creatives/$industry',
+    path: '/ad-creatives/$industry',
+    getParentRoute: () => PortfolioRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
   '/industries/fitness': typeof IndustriesFitnessRoute
@@ -138,17 +165,21 @@ export interface FileRoutesByFullPath {
   '/locations/bandra': typeof LocationsBandraRoute
   '/locations/powai': typeof LocationsPowaiRoute
   '/locations/thane': typeof LocationsThaneRoute
+  '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
+  '/portfolio/ad-creatives/$industry': typeof PortfolioAdCreativesIndustryRoute
+  '/portfolio/video-content/$industry': typeof PortfolioVideoContentIndustryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
   '/industries/fitness': typeof IndustriesFitnessRoute
@@ -158,11 +189,14 @@ export interface FileRoutesByTo {
   '/locations/bandra': typeof LocationsBandraRoute
   '/locations/powai': typeof LocationsPowaiRoute
   '/locations/thane': typeof LocationsThaneRoute
+  '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
+  '/portfolio/ad-creatives/$industry': typeof PortfolioAdCreativesIndustryRoute
+  '/portfolio/video-content/$industry': typeof PortfolioVideoContentIndustryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,6 +204,7 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
   '/industries/fitness': typeof IndustriesFitnessRoute
@@ -179,11 +214,14 @@ export interface FileRoutesById {
   '/locations/bandra': typeof LocationsBandraRoute
   '/locations/powai': typeof LocationsPowaiRoute
   '/locations/thane': typeof LocationsThaneRoute
+  '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
+  '/portfolio/ad-creatives/$industry': typeof PortfolioAdCreativesIndustryRoute
+  '/portfolio/video-content/$industry': typeof PortfolioVideoContentIndustryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -192,6 +230,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/case-studies'
     | '/contact'
+    | '/portfolio'
     | '/pricing'
     | '/industries/d2c-brands'
     | '/industries/fitness'
@@ -201,17 +240,21 @@ export interface FileRouteTypes {
     | '/locations/bandra'
     | '/locations/powai'
     | '/locations/thane'
+    | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
+    | '/portfolio/ad-creatives/$industry'
+    | '/portfolio/video-content/$industry'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/blog'
     | '/case-studies'
     | '/contact'
+    | '/portfolio'
     | '/pricing'
     | '/industries/d2c-brands'
     | '/industries/fitness'
@@ -221,17 +264,21 @@ export interface FileRouteTypes {
     | '/locations/bandra'
     | '/locations/powai'
     | '/locations/thane'
+    | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
+    | '/portfolio/ad-creatives/$industry'
+    | '/portfolio/video-content/$industry'
   id:
     | '__root__'
     | '/'
     | '/blog'
     | '/case-studies'
     | '/contact'
+    | '/portfolio'
     | '/pricing'
     | '/industries/d2c-brands'
     | '/industries/fitness'
@@ -241,11 +288,14 @@ export interface FileRouteTypes {
     | '/locations/bandra'
     | '/locations/powai'
     | '/locations/thane'
+    | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
+    | '/portfolio/ad-creatives/$industry'
+    | '/portfolio/video-content/$industry'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -253,6 +303,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  PortfolioRoute: typeof PortfolioRouteWithChildren
   PricingRoute: typeof PricingRoute
   IndustriesD2cBrandsRoute: typeof IndustriesD2cBrandsRoute
   IndustriesFitnessRoute: typeof IndustriesFitnessRoute
@@ -276,6 +327,13 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -341,6 +399,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesInstagramMarketingMumbaiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/websites': {
+      id: '/portfolio/websites'
+      path: '/websites'
+      fullPath: '/portfolio/websites'
+      preLoaderRoute: typeof PortfolioWebsitesRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
     '/locations/thane': {
       id: '/locations/thane'
       path: '/locations/thane'
@@ -397,14 +462,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesD2cBrandsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/video-content/$industry': {
+      id: '/portfolio/video-content/$industry'
+      path: '/video-content/$industry'
+      fullPath: '/portfolio/video-content/$industry'
+      preLoaderRoute: typeof PortfolioVideoContentIndustryRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
+    '/portfolio/ad-creatives/$industry': {
+      id: '/portfolio/ad-creatives/$industry'
+      path: '/ad-creatives/$industry'
+      fullPath: '/portfolio/ad-creatives/$industry'
+      preLoaderRoute: typeof PortfolioAdCreativesIndustryRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
   }
 }
+
+interface PortfolioRouteChildren {
+  PortfolioWebsitesRoute: typeof PortfolioWebsitesRoute
+  PortfolioAdCreativesIndustryRoute: typeof PortfolioAdCreativesIndustryRoute
+  PortfolioVideoContentIndustryRoute: typeof PortfolioVideoContentIndustryRoute
+}
+
+const PortfolioRouteChildren: PortfolioRouteChildren = {
+  PortfolioWebsitesRoute: PortfolioWebsitesRoute,
+  PortfolioAdCreativesIndustryRoute: PortfolioAdCreativesIndustryRoute,
+  PortfolioVideoContentIndustryRoute: PortfolioVideoContentIndustryRoute,
+}
+
+const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
+  PortfolioRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  PortfolioRoute: PortfolioRouteWithChildren,
   PricingRoute: PricingRoute,
   IndustriesD2cBrandsRoute: IndustriesD2cBrandsRoute,
   IndustriesFitnessRoute: IndustriesFitnessRoute,

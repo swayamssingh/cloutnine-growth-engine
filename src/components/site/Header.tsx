@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/site/ThemeProvider";
 const NAV = [
   { to: "/services/social-media-marketing-mumbai", label: "Services" },
   { to: "/industries/restaurants", label: "Industries" },
-  { to: "/case-studies", label: "Work" },
+  { to: "/portfolio", label: "Portfolio" },
   { to: "/pricing", label: "Pricing" },
   { to: "/contact", label: "Contact" },
 ] as const;
