@@ -21,6 +21,8 @@ import { Route as ServicesSocialMediaMarketingMumbaiRouteImport } from './routes
 import { Route as ServicesMetaAdsManagementMumbaiRouteImport } from './routes/services.meta-ads-management-mumbai'
 import { Route as ServicesInstagramMarketingMumbaiRouteImport } from './routes/services.instagram-marketing-mumbai'
 import { Route as PortfolioWebsitesRouteImport } from './routes/portfolio.websites'
+import { Route as PortfolioVideoContentRouteImport } from './routes/portfolio.video-content'
+import { Route as PortfolioAdCreativesRouteImport } from './routes/portfolio.ad-creatives'
 import { Route as LocationsThaneRouteImport } from './routes/locations.thane'
 import { Route as LocationsPowaiRouteImport } from './routes/locations.powai'
 import { Route as LocationsBandraRouteImport } from './routes/locations.bandra'
@@ -97,6 +99,16 @@ const PortfolioWebsitesRoute = PortfolioWebsitesRouteImport.update({
   path: '/websites',
   getParentRoute: () => PortfolioRoute,
 } as any)
+const PortfolioVideoContentRoute = PortfolioVideoContentRouteImport.update({
+  id: '/video-content',
+  path: '/video-content',
+  getParentRoute: () => PortfolioRoute,
+} as any)
+const PortfolioAdCreativesRoute = PortfolioAdCreativesRouteImport.update({
+  id: '/ad-creatives',
+  path: '/ad-creatives',
+  getParentRoute: () => PortfolioRoute,
+} as any)
 const LocationsThaneRoute = LocationsThaneRouteImport.update({
   id: '/locations/thane',
   path: '/locations/thane',
@@ -139,15 +151,15 @@ const IndustriesD2cBrandsRoute = IndustriesD2cBrandsRouteImport.update({
 } as any)
 const PortfolioVideoContentIndustryRoute =
   PortfolioVideoContentIndustryRouteImport.update({
-    id: '/video-content/$industry',
-    path: '/video-content/$industry',
-    getParentRoute: () => PortfolioRoute,
+    id: '/$industry',
+    path: '/$industry',
+    getParentRoute: () => PortfolioVideoContentRoute,
   } as any)
 const PortfolioAdCreativesIndustryRoute =
   PortfolioAdCreativesIndustryRouteImport.update({
-    id: '/ad-creatives/$industry',
-    path: '/ad-creatives/$industry',
-    getParentRoute: () => PortfolioRoute,
+    id: '/$industry',
+    path: '/$industry',
+    getParentRoute: () => PortfolioAdCreativesRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -165,6 +177,8 @@ export interface FileRoutesByFullPath {
   '/locations/bandra': typeof LocationsBandraRoute
   '/locations/powai': typeof LocationsPowaiRoute
   '/locations/thane': typeof LocationsThaneRoute
+  '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
+  '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
@@ -189,6 +203,8 @@ export interface FileRoutesByTo {
   '/locations/bandra': typeof LocationsBandraRoute
   '/locations/powai': typeof LocationsPowaiRoute
   '/locations/thane': typeof LocationsThaneRoute
+  '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
+  '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
@@ -214,6 +230,8 @@ export interface FileRoutesById {
   '/locations/bandra': typeof LocationsBandraRoute
   '/locations/powai': typeof LocationsPowaiRoute
   '/locations/thane': typeof LocationsThaneRoute
+  '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
+  '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
@@ -240,6 +258,8 @@ export interface FileRouteTypes {
     | '/locations/bandra'
     | '/locations/powai'
     | '/locations/thane'
+    | '/portfolio/ad-creatives'
+    | '/portfolio/video-content'
     | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
@@ -264,6 +284,8 @@ export interface FileRouteTypes {
     | '/locations/bandra'
     | '/locations/powai'
     | '/locations/thane'
+    | '/portfolio/ad-creatives'
+    | '/portfolio/video-content'
     | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
@@ -288,6 +310,8 @@ export interface FileRouteTypes {
     | '/locations/bandra'
     | '/locations/powai'
     | '/locations/thane'
+    | '/portfolio/ad-creatives'
+    | '/portfolio/video-content'
     | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
@@ -406,6 +430,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioWebsitesRouteImport
       parentRoute: typeof PortfolioRoute
     }
+    '/portfolio/video-content': {
+      id: '/portfolio/video-content'
+      path: '/video-content'
+      fullPath: '/portfolio/video-content'
+      preLoaderRoute: typeof PortfolioVideoContentRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
+    '/portfolio/ad-creatives': {
+      id: '/portfolio/ad-creatives'
+      path: '/ad-creatives'
+      fullPath: '/portfolio/ad-creatives'
+      preLoaderRoute: typeof PortfolioAdCreativesRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
     '/locations/thane': {
       id: '/locations/thane'
       path: '/locations/thane'
@@ -464,31 +502,55 @@ declare module '@tanstack/react-router' {
     }
     '/portfolio/video-content/$industry': {
       id: '/portfolio/video-content/$industry'
-      path: '/video-content/$industry'
+      path: '/$industry'
       fullPath: '/portfolio/video-content/$industry'
       preLoaderRoute: typeof PortfolioVideoContentIndustryRouteImport
-      parentRoute: typeof PortfolioRoute
+      parentRoute: typeof PortfolioVideoContentRoute
     }
     '/portfolio/ad-creatives/$industry': {
       id: '/portfolio/ad-creatives/$industry'
-      path: '/ad-creatives/$industry'
+      path: '/$industry'
       fullPath: '/portfolio/ad-creatives/$industry'
       preLoaderRoute: typeof PortfolioAdCreativesIndustryRouteImport
-      parentRoute: typeof PortfolioRoute
+      parentRoute: typeof PortfolioAdCreativesRoute
     }
   }
 }
 
-interface PortfolioRouteChildren {
-  PortfolioWebsitesRoute: typeof PortfolioWebsitesRoute
+interface PortfolioAdCreativesRouteChildren {
   PortfolioAdCreativesIndustryRoute: typeof PortfolioAdCreativesIndustryRoute
+}
+
+const PortfolioAdCreativesRouteChildren: PortfolioAdCreativesRouteChildren = {
+  PortfolioAdCreativesIndustryRoute: PortfolioAdCreativesIndustryRoute,
+}
+
+const PortfolioAdCreativesRouteWithChildren =
+  PortfolioAdCreativesRoute._addFileChildren(PortfolioAdCreativesRouteChildren)
+
+interface PortfolioVideoContentRouteChildren {
   PortfolioVideoContentIndustryRoute: typeof PortfolioVideoContentIndustryRoute
 }
 
-const PortfolioRouteChildren: PortfolioRouteChildren = {
-  PortfolioWebsitesRoute: PortfolioWebsitesRoute,
-  PortfolioAdCreativesIndustryRoute: PortfolioAdCreativesIndustryRoute,
+const PortfolioVideoContentRouteChildren: PortfolioVideoContentRouteChildren = {
   PortfolioVideoContentIndustryRoute: PortfolioVideoContentIndustryRoute,
+}
+
+const PortfolioVideoContentRouteWithChildren =
+  PortfolioVideoContentRoute._addFileChildren(
+    PortfolioVideoContentRouteChildren,
+  )
+
+interface PortfolioRouteChildren {
+  PortfolioAdCreativesRoute: typeof PortfolioAdCreativesRouteWithChildren
+  PortfolioVideoContentRoute: typeof PortfolioVideoContentRouteWithChildren
+  PortfolioWebsitesRoute: typeof PortfolioWebsitesRoute
+}
+
+const PortfolioRouteChildren: PortfolioRouteChildren = {
+  PortfolioAdCreativesRoute: PortfolioAdCreativesRouteWithChildren,
+  PortfolioVideoContentRoute: PortfolioVideoContentRouteWithChildren,
+  PortfolioWebsitesRoute: PortfolioWebsitesRoute,
 }
 
 const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
