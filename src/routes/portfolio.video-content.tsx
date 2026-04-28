@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PortfolioTabs } from "@/components/site/PortfolioTabs";
+import { PortfolioGrid } from "@/components/site/PortfolioGrid";
 import { VIDEO_CONTENT } from "@/lib/portfolio-data";
 
 export const Route = createFileRoute("/portfolio/video-content")({
@@ -38,7 +38,7 @@ function VideoContentPage() {
       </section>
 
       <section className="container-x py-10 md:py-14">
-        <PortfolioTabs data={VIDEO_CONTENT} initial="cafe" />
+        <PortfolioGrid items={VIDEO_CONTENT["cafe"]} />
       </section>
     </div>
   );
