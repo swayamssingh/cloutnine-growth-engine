@@ -126,16 +126,17 @@ function PortfolioTile({
               }`}
             />
           )}
-          {/* Video layer (lazy loaded on hover) */}
+          {/* Video layer */}
           <video
             ref={videoRef}
+            src={item.src}
             muted
             loop
             playsInline
-            preload="none"
+            preload="metadata"
             poster={item.thumbnail}
             className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${
-              hover ? "scale-[1.03] opacity-100" : "opacity-0"
+              hover ? "scale-[1.03] opacity-100" : "opacity-100"
             }`}
           />
         </>
