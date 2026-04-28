@@ -8,9 +8,21 @@ type Props = {
 };
 
 export function PortfolioTabs({ data, initial = "cafe" }: Props) {
-  const [active, setActive] = useState<Industry>(initial);
+  // Fall back to the first industry that actually has items
+  const firstWithItems =
+    (INDUSTRIES.find((i) => data[i.slug]?.length > 0)?.slug as Industry) ??
+    initial;
+  const startIndustry: Industry =
+    data[initial]?.length > 0 ? initial : firstWithItems;
+
+  const [active, setActive] = useState<Industry>(startIndustry);
   const [visible, setVisible] = useState(true);
-  const [items, setItems] = useState<PortfolioItem[]>(data[initial]);
+  const [items, setItems] = useState<PortfolioItem[]>(data[startIndustry] ?? []);
+
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.log("[PortfolioTabs] data", data, "active", active, "items", items.length);
+  }
 
   // Smooth fade when switching categories
   useEffect(() => {
