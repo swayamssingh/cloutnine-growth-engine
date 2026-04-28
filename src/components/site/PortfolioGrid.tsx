@@ -5,6 +5,11 @@ type Props = {
 };
 
 export function PortfolioGrid({ items }: Props) {
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.log("[PortfolioGrid] rendering items:", items?.length, items);
+  }
+
   return (
     <div
       style={{
@@ -17,8 +22,9 @@ export function PortfolioGrid({ items }: Props) {
     >
       {items.map((item, i) => (
         <div
-          key={`${item.brand}-${i}`}
+          key={`${item.brand}-${i}-${item.src}`}
           style={{
+            position: "relative",
             aspectRatio: "9 / 16",
             borderRadius: 12,
             overflow: "hidden",
@@ -31,15 +37,27 @@ export function PortfolioGrid({ items }: Props) {
               src={item.src}
               muted
               loop
+              autoPlay
               playsInline
               preload="metadata"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{
+                display: "block",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
             />
           ) : (
             <img
               src={item.src}
-              alt={`${item.brand} — ${item.category}`}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              alt={item.brand}
+              loading="lazy"
+              style={{
+                display: "block",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
             />
           )}
         </div>
