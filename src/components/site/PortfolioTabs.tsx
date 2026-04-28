@@ -44,18 +44,23 @@ export function PortfolioTabs({ data, initial = "cafe" }: Props) {
       >
         {INDUSTRIES.map((ind) => {
           const isActive = ind.slug === active;
+          const count = data[ind.slug]?.length ?? 0;
+          const isEmpty = count === 0;
           return (
             <button
               key={ind.slug}
               type="button"
               role="tab"
               aria-selected={isActive}
-              onClick={() => setActive(ind.slug)}
+              disabled={isEmpty}
+              onClick={() => !isEmpty && setActive(ind.slug)}
               className={[
                 "relative pb-2 text-sm transition-colors duration-300 outline-none",
-                isActive
-                  ? "text-white"
-                  : "text-white/45 hover:text-white/80",
+                isEmpty
+                  ? "text-white/20 cursor-not-allowed"
+                  : isActive
+                    ? "text-white"
+                    : "text-white/45 hover:text-white/80",
               ].join(" ")}
             >
               {ind.label}
