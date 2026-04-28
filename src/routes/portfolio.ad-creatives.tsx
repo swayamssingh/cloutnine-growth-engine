@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PortfolioTabs } from "@/components/site/PortfolioTabs";
+import { PortfolioGrid } from "@/components/site/PortfolioGrid";
 import { AD_CREATIVES } from "@/lib/portfolio-data";
 
 export const Route = createFileRoute("/portfolio/ad-creatives")({
@@ -38,7 +38,7 @@ function AdCreativesPage() {
       </section>
 
       <section className="container-x py-10 md:py-14">
-        <PortfolioTabs data={AD_CREATIVES} initial="cafe" />
+        <PortfolioGrid items={AD_CREATIVES["d2c"]} />
       </section>
     </div>
   );
