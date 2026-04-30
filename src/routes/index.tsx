@@ -160,57 +160,20 @@ function Index() {
         </div>
       </Section>
 
-      {/* CASE STUDY TEASER */}
-      <Section eyebrow="Selected work" title="Outcomes, not dashboards.">
-        <div className="grid md:grid-cols-3 gap-5">
-          {[
-            { tag: "D2C Skincare · Mumbai", h: "₹5L → ₹25L MRR in 6 months", b: "Reels-led top-of-funnel + Meta retargeting + WhatsApp recovery.", tint: "var(--wave-pink)" },
-            { tag: "Restaurant · Bandra", h: "31% lift in dine-in covers", b: "Geo-targeted Reels + Click-to-WhatsApp reservations.", tint: "var(--wave-orange)" },
-            { tag: "Real Estate · Powai", h: "212 site-visits in 90 days", b: "Lead-gen ads + landing page + on-call WhatsApp triage.", tint: "var(--wave-blue)" },
-          ].map((c) => (
-            <div
-              key={c.h}
-              className="card-tint p-8 md:p-10"
-              style={{ ["--tint" as never]: c.tint }}
-            >
-              <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                {c.tag}
-              </span>
-              <h3 className="display text-3xl mt-6">{c.h}</h3>
-              <p className="mt-4 text-muted-foreground">{c.b}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10">
-          <Link
-            to="/case-studies"
-            className="inline-flex items-center gap-2 text-sm text-foreground hover:text-primary transition"
-          >
-            All case studies <ArrowUpRight size={16} />
-          </Link>
-        </div>
-      </Section>
-
       {/* TESTIMONIALS */}
       <Section eyebrow="What clients say" title="">
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            { q: "They run our growth stack like a CFO would. Every rupee has a number against it.", n: "Aarav Mehta", r: "Founder, D2C Skincare", tint: "var(--wave-blue)" },
-            { q: "We replaced three vendors with CloutNine. Output went up, drama went down.", n: "Priya Shah", r: "Head of Marketing, Restaurant Group", tint: "var(--wave-purple)" },
-          ].map((t) => (
-            <figure
-              key={t.n}
-              className="card-tint p-8"
-              style={{ ["--tint" as never]: t.tint }}
-            >
-              <blockquote className="text-xl md:text-2xl leading-snug">
-                "{t.q}"
-              </blockquote>
-              <figcaption className="mt-6 text-sm text-muted-foreground">
-                {t.n} — <span className="text-foreground/70">{t.r}</span>
-              </figcaption>
-            </figure>
-          ))}
+        <div className="flex justify-center">
+          <figure
+            className="card-tint p-10 md:p-14 max-w-3xl w-full"
+            style={{ ["--tint" as never]: "var(--wave-blue)" }}
+          >
+            <blockquote className="text-xl md:text-2xl leading-relaxed">
+              "Great experience working with this web development agency, they delivered a clean, high-quality website with excellent attention to detail. Professional, responsive, and reliable throughout the process, definitely deserving of a 5-star rating."
+            </blockquote>
+            <figcaption className="mt-8 text-sm text-muted-foreground">
+              Danesh Singh — <span className="text-foreground/70">SandnSea Realty</span>
+            </figcaption>
+          </figure>
         </div>
       </Section>
 

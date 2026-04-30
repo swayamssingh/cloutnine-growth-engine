@@ -1,8 +1,8 @@
 export const SITE = {
   name: "CloutNine",
   url: "https://cloutnine.in",
-  phone: "+91-98765-43210",
-  whatsapp: "919876543210",
+  phone: "+91 99226 67366",
+  whatsapp: "919922667366",
   email: "hello@cloutnine.in",
   address: {
     streetAddress: "Andheri East",
