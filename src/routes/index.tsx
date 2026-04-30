@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, FAQ, MetricCard } from "@/components/site/Section";
+import { PortfolioPreview } from "@/components/site/PortfolioPreview";
 import { AuditForm } from "@/components/site/AuditForm";
 import { VideoHero } from "@/components/site/VideoHero";
 import { faqSchema, jsonLd } from "@/lib/seo";
@@ -91,15 +92,8 @@ function Index() {
       {/* HERO — Video */}
       <VideoHero />
 
-      {/* PROOF METRICS */}
-      <Section className="!py-20" eyebrow="Receipts" title="The numbers we're hired to move.">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <MetricCard value="120+" label="Brands grown" />
-          <MetricCard value="₹14Cr" label="Ad spend managed" />
-          <MetricCard value="3.8×" label="Avg ROAS" />
-          <MetricCard value="48hr" label="Audit turnaround" />
-        </div>
-      </Section>
+      {/* PORTFOLIO PREVIEW */}
+      <PortfolioPreview />
 
       {/* SERVICES */}
       <Section
