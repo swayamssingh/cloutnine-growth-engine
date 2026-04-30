@@ -84,6 +84,12 @@ const SERVICES = [
     body: "Broadcast, automation and click-to-WhatsApp ads — close warm leads in minutes.",
     to: "/services/whatsapp-marketing-mumbai" as const,
   },
+  {
+    n: "06",
+    title: "Content Creation",
+    body: "Reels, ads and visuals built to capture attention and drive engagement.",
+    to: "/services/social-media-marketing-mumbai" as const,
+  },
 ];
 
 function Index() {
