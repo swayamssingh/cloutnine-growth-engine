@@ -70,7 +70,7 @@ function Contact() {
               <ContactRow
                 icon={<MapPin size={18} />}
                 label="Studio"
-                value="Andheri East, Mumbai 400069"
+                value="Mumbai"
               />
             </div>
 

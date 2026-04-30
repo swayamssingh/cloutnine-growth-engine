@@ -5,10 +5,10 @@ export const SITE = {
   whatsapp: "919922667366",
   email: "hello@cloutnine.in",
   address: {
-    streetAddress: "Andheri East",
+    streetAddress: "",
     addressLocality: "Mumbai",
     addressRegion: "MH",
-    postalCode: "400069",
+    postalCode: "",
     addressCountry: "IN",
   },
   geo: { latitude: "19.1136", longitude: "72.8697" },

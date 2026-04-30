@@ -56,7 +56,7 @@ export function Footer() {
           <div className="flex flex-wrap gap-6">
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
             <a href={`tel:${SITE.phone}`}>{SITE.phone}</a>
-            <span>{SITE.address.streetAddress}, Mumbai 400069</span>
+            <span>Mumbai</span>
           </div>
         </div>
       </div>
