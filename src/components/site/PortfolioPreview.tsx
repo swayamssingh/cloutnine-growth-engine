@@ -13,17 +13,31 @@ import shott23 from "@/assets/portfolio/shott-23.png";
 import shott29 from "@/assets/portfolio/shott-29.png";
 import shott49 from "@/assets/portfolio/shott-49.png";
 import shott25 from "@/assets/portfolio/shott-25.png";
+import shott64 from "@/assets/portfolio/shott-64.png";
+import shott65 from "@/assets/portfolio/shott-65.png";
+import shott30 from "@/assets/portfolio/shott-30.png";
+import shott31 from "@/assets/portfolio/shott-31.png";
+import shott77 from "@/assets/portfolio/shott-77.png";
+import shott55 from "@/assets/portfolio/shott-55.png";
+import shott54 from "@/assets/portfolio/shott-54.png";
 
 const IMAGES = [
   shot88,
+  shott64,
   shot9,
+  shott30,
   shot89,
+  shott77,
   shott23,
   shot81,
+  shott65,
   shot10,
+  shott54,
   shot96,
+  shott31,
   shott29,
   shot94,
+  shott55,
   shot5,
   shot90,
   shott49,
