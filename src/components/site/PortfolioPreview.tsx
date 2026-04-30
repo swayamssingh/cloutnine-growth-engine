@@ -6,8 +6,30 @@ import shot96 from "@/assets/portfolio/shot-96.png";
 import shot94 from "@/assets/portfolio/shot-94.png";
 import shot90 from "@/assets/portfolio/shot-90.png";
 import shot8 from "@/assets/portfolio/shot-8.png";
+import shot9 from "@/assets/portfolio/shot-9.png";
+import shot10 from "@/assets/portfolio/shot-10.png";
+import shot5 from "@/assets/portfolio/shot-5.png";
+import shott23 from "@/assets/portfolio/shott-23.png";
+import shott29 from "@/assets/portfolio/shott-29.png";
+import shott49 from "@/assets/portfolio/shott-49.png";
+import shott25 from "@/assets/portfolio/shott-25.png";
 
-const IMAGES = [shot88, shot89, shot81, shot96, shot94, shot90, shot8];
+const IMAGES = [
+  shot88,
+  shot9,
+  shot89,
+  shott23,
+  shot81,
+  shot10,
+  shot96,
+  shott29,
+  shot94,
+  shot5,
+  shot90,
+  shott49,
+  shot8,
+  shott25,
+];
 
 export function PortfolioPreview() {
   // Duplicate the set so the -50% translate loop is seamless
@@ -31,10 +53,10 @@ export function PortfolioPreview() {
               className="display font-bold text-white leading-[1.05]"
               style={{ fontSize: "clamp(32px, 5vw, 48px)" }}
             >
-              Selected Work
+              Portfolio
             </h2>
             <p className="mt-4 max-w-xl text-base md:text-lg" style={{ color: "#A0A0A0" }}>
-              A glimpse into the brands we've built, scaled, and grown.
+              Design, content, and creative direction.
             </p>
           </div>
 
