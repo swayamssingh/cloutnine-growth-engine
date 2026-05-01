@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -35,11 +34,6 @@ import { Route as IndustriesD2cBrandsRouteImport } from './routes/industries.d2c
 import { Route as PortfolioVideoContentIndustryRouteImport } from './routes/portfolio.video-content.$industry'
 import { Route as PortfolioAdCreativesIndustryRouteImport } from './routes/portfolio.ad-creatives.$industry'
 
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
@@ -175,7 +169,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
-  '/pricing': typeof PricingRoute
   '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
   '/industries/fitness': typeof IndustriesFitnessRoute
   '/industries/real-estate': typeof IndustriesRealEstateRoute
@@ -202,7 +195,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
-  '/pricing': typeof PricingRoute
   '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
   '/industries/fitness': typeof IndustriesFitnessRoute
   '/industries/real-estate': typeof IndustriesRealEstateRoute
@@ -230,7 +222,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
-  '/pricing': typeof PricingRoute
   '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
   '/industries/fitness': typeof IndustriesFitnessRoute
   '/industries/real-estate': typeof IndustriesRealEstateRoute
@@ -259,7 +250,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/packages'
     | '/portfolio'
-    | '/pricing'
     | '/industries/d2c-brands'
     | '/industries/fitness'
     | '/industries/real-estate'
@@ -286,7 +276,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/packages'
     | '/portfolio'
-    | '/pricing'
     | '/industries/d2c-brands'
     | '/industries/fitness'
     | '/industries/real-estate'
@@ -313,7 +302,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/packages'
     | '/portfolio'
-    | '/pricing'
     | '/industries/d2c-brands'
     | '/industries/fitness'
     | '/industries/real-estate'
@@ -341,7 +329,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PackagesRoute: typeof PackagesRoute
   PortfolioRoute: typeof PortfolioRouteWithChildren
-  PricingRoute: typeof PricingRoute
   IndustriesD2cBrandsRoute: typeof IndustriesD2cBrandsRoute
   IndustriesFitnessRoute: typeof IndustriesFitnessRoute
   IndustriesRealEstateRoute: typeof IndustriesRealEstateRoute
@@ -359,13 +346,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
@@ -584,7 +564,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PackagesRoute: PackagesRoute,
   PortfolioRoute: PortfolioRouteWithChildren,
-  PricingRoute: PricingRoute,
   IndustriesD2cBrandsRoute: IndustriesD2cBrandsRoute,
   IndustriesFitnessRoute: IndustriesFitnessRoute,
   IndustriesRealEstateRoute: IndustriesRealEstateRoute,
