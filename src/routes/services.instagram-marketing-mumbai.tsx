@@ -6,7 +6,7 @@ const FAQS = [
   { q: "How fast can Instagram grow with a Reels-first strategy?", a: "For a niche brand starting from scratch, expect first traction (10K+ views per Reel, 500–2,000 followers/month) within 60 days if posting cadence is 3–5x/week and creative is iterated weekly." },
   { q: "Do you only post Reels?", a: "No. Reels drive reach. Carousels save and share, Stories convert. We use a 60/25/15 split engineered to the algorithm in 2026." },
   { q: "Will you boost posts or run dedicated ads?", a: "Both. Boost the proven organic winners, run dedicated conversion campaigns to landing pages and click-to-WhatsApp." },
-  { q: "Do you script and shoot in Mumbai?", a: "Yes. Our content team is in Andheri. We do 1 shoot day/month at your venue or our studio, then bank 3–4 weeks of content." },
+  { q: "Do you script and shoot in Mumbai?", a: "Yes. Our content team is in Mumbai. We do 1 shoot day/month at your venue or our studio, then bank 3–4 weeks of content." },
   { q: "What's a realistic monthly budget for Instagram?", a: "Retainer ₹65K–₹1.5L/month + ₹50K–₹2L ad spend depending on category. We size it to your unit economics." },
 ];
 

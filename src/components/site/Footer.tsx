@@ -10,25 +10,12 @@ const SERVICES = [
   { to: "/services/whatsapp-marketing-mumbai", label: "WhatsApp Marketing" },
 ] as const;
 
-const LOCATIONS = [
-  { to: "/locations/andheri", label: "Andheri" },
-  { to: "/locations/bandra", label: "Bandra" },
-  { to: "/locations/powai", label: "Powai" },
-  { to: "/locations/thane", label: "Thane" },
-] as const;
-
-const INDUSTRIES = [
-  { to: "/industries/restaurants", label: "Restaurants" },
-  { to: "/industries/d2c-brands", label: "D2C Brands" },
-  { to: "/industries/fitness", label: "Fitness" },
-  { to: "/industries/real-estate", label: "Real Estate" },
-] as const;
 
 export function Footer() {
   return (
     <footer className="border-t border-[color:var(--color-hairline)] mt-32">
       <div className="container-x py-20">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           <div className="col-span-2">
             <div className="flex items-center gap-3">
               <LogoMark className="h-9 w-9 text-foreground" />
@@ -47,8 +34,6 @@ export function Footer() {
           </div>
 
           <FooterCol title="Services" items={SERVICES} />
-          <FooterCol title="Locations" items={LOCATIONS} />
-          <FooterCol title="Industries" items={INDUSTRIES} />
         </div>
 
         <div className="mt-16 hairline pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-muted-foreground">

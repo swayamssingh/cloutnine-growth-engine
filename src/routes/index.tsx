@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "Do you work with brands outside Mumbai?",
-    a: "Yes. We're based in Andheri but run accounts across India and the UAE. Most of our work happens async — Loom, WhatsApp, Notion — with monthly in-person sessions for Mumbai clients.",
+    a: "Yes. We're based in Mumbai but run accounts across India and the UAE. Most of our work happens async — Loom, WhatsApp, Notion — with monthly in-person sessions for Mumbai clients.",
   },
 ];
 
