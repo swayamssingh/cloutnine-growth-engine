@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Section, FAQ, MetricCard } from "@/components/site/Section";
+import { Section, FAQ } from "@/components/site/Section";
 import { PortfolioPreview } from "@/components/site/PortfolioPreview";
 import { AuditForm } from "@/components/site/AuditForm";
 import { VideoHero } from "@/components/site/VideoHero";
