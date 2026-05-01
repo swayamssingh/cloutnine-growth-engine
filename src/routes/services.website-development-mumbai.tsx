@@ -32,12 +32,6 @@ export const Route = createFileRoute("/services/website-development-mumbai")({
       eyebrow="Website Development · Mumbai"
       h1={<>Websites engineered to <span className="text-primary">convert</span>, not just exist.</>}
       intro="Most agency websites are art projects. Ours are sales assets. Fast, indexable, mobile-first, plugged into your ad funnel and WhatsApp from day one."
-      metrics={[
-        { value: "1.2s", label: "Avg LCP" },
-        { value: "98", label: "Avg PageSpeed" },
-        { value: "+186%", label: "Avg conv. lift" },
-        { value: "21d", label: "Avg launch time" },
-      ]}
       deliverables={[
         { title: "Discovery + IA", body: "Customer research, sitemap, conversion-mapped user flow before we touch design." },
         { title: "Design + build", body: "Bespoke design in Figma → Webflow / Next.js / Shopify. No templates." },

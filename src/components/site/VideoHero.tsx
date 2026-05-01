@@ -74,7 +74,7 @@ export function VideoHero() {
                   <ArrowUpRight size={16} />
                 </Link>
                 <Link
-                  to="/case-studies"
+                  to="/portfolio"
                   className="glass inline-flex h-12 items-center rounded-full px-6 text-sm text-white/90"
                 >
                   See the work

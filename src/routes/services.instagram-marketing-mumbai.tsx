@@ -32,12 +32,6 @@ export const Route = createFileRoute("/services/instagram-marketing-mumbai")({
       eyebrow="Instagram Marketing · Mumbai"
       h1={<>Instagram growth for brands that <span className="text-primary">sell</span>, not pose.</>}
       intro="Reels engineered for the algorithm. Carousels engineered to save. Stories engineered to convert. The full Instagram stack, run by a team that ships weekly."
-      metrics={[
-        { value: "8.4M+", label: "Reels views/mo" },
-        { value: "+312%", label: "Avg follower growth" },
-        { value: "1,400", label: "DMs to leads/mo" },
-        { value: "11×", label: "Best ROAS" },
-      ]}
       deliverables={[
         { title: "Strategy + content calendar", body: "Hooks, formats and posting cadence derived from your top-converting offers." },
         { title: "Reels production", body: "Scripted, shot and edited in Mumbai. 8–15 Reels/month with weekly iteration." },

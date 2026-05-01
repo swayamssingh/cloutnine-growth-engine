@@ -32,12 +32,6 @@ export const Route = createFileRoute("/services/whatsapp-marketing-mumbai")({
       eyebrow="WhatsApp Marketing · Mumbai"
       h1={<>Close warm leads on <span className="text-primary">WhatsApp</span>, not in inboxes.</>}
       intro="98% open rates. 45-second average response. WhatsApp is where Indian buyers actually decide. We set up the API, build the flows and run the campaigns."
-      metrics={[
-        { value: "98%", label: "Avg open rate" },
-        { value: "45s", label: "Avg response time" },
-        { value: "+34%", label: "Repeat revenue lift" },
-        { value: "12×", label: "vs email CTR" },
-      ]}
       deliverables={[
         { title: "WhatsApp API setup", body: "AiSensy / Wati / Interakt onboarding, Meta verification, green-tick application." },
         { title: "Template library", body: "20+ Meta-approved templates: order, offer, recovery, support, win-back." },
