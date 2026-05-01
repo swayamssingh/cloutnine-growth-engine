@@ -8,6 +8,7 @@ const NAV = [
   { to: "/services/social-media-marketing-mumbai", label: "Services" },
   { to: "/industries/restaurants", label: "Industries" },
   { to: "/portfolio", label: "Portfolio" },
+  { to: "/packages", label: "Packages" },
   { to: "/pricing", label: "Pricing" },
   { to: "/contact", label: "Contact" },
 ] as const;
