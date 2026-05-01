@@ -32,14 +32,8 @@ export const Route = createFileRoute("/services/social-media-marketing-mumbai")(
       eyebrow="Social Media Marketing · Mumbai"
       h1={<>The social media agency Mumbai brands hire to <span className="text-primary">grow revenue</span>.</>}
       intro="We build content engineered to be paid, ads engineered to convert, and WhatsApp flows engineered to close. One team. One system. Weekly accountability."
-      metrics={[
-        { value: "120+", label: "Brands grown" },
-        { value: "3.8×", label: "Avg ROAS" },
-        { value: "₹14Cr", label: "Spend managed" },
-        { value: "92%", label: "Client retention" },
-      ]}
       deliverables={[
-        { title: "Content production", body: "8–20 posts/Reels per month, scripted, shot and edited by the in-house team in Andheri." },
+        { title: "Content production", body: "8–20 posts/Reels per month, scripted, shot and edited by the in-house team in Mumbai." },
         { title: "Paid distribution", body: "Meta Ads strategy, daily ad ops, weekly creative iteration. We optimise for revenue, not CTR." },
         { title: "Conversion layer", body: "Landing pages, click-to-WhatsApp ads and CRM routing so warm leads close in minutes, not days." },
         { title: "Reporting that matters", body: "Weekly Loom + Notion dashboard. CAC, LTV, ROAS — not impressions and reach." },

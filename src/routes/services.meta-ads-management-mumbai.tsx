@@ -32,12 +32,6 @@ export const Route = createFileRoute("/services/meta-ads-management-mumbai")({
       eyebrow="Meta Ads · Mumbai"
       h1={<>Meta Ads that move <span className="text-primary">revenue</span>, not dashboards.</>}
       intro="Performance creative + disciplined media buying. We obsess over CAC, ROAS and incremental lift — not impressions or thumb-stops in a Google Slides deck."
-      metrics={[
-        { value: "₹14Cr+", label: "Spend managed" },
-        { value: "3.8×", label: "Avg ROAS" },
-        { value: "₹287", label: "Avg CPL" },
-        { value: "−42%", label: "Avg CAC drop" },
-      ]}
       deliverables={[
         { title: "Creative-led testing", body: "12–25 fresh ad creatives per month. Hooks, statics, UGC, founder-led — whatever the data points to." },
         { title: "Account architecture", body: "Advantage+, ASC, lead-gen and retargeting structured to your funnel — not a generic template." },

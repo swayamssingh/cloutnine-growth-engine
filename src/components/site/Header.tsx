@@ -6,7 +6,6 @@ import { ThemeToggle } from "@/components/site/ThemeProvider";
 
 const NAV = [
   { to: "/services/social-media-marketing-mumbai", label: "Services" },
-  { to: "/industries/restaurants", label: "Industries" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/packages", label: "Packages" },
   { to: "/contact", label: "Contact" },

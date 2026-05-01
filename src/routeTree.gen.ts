@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesWhatsappMarketingMumbaiRouteImport } from './routes/services.whatsapp-marketing-mumbai'
@@ -23,14 +22,6 @@ import { Route as ServicesInstagramMarketingMumbaiRouteImport } from './routes/s
 import { Route as PortfolioWebsitesRouteImport } from './routes/portfolio.websites'
 import { Route as PortfolioVideoContentRouteImport } from './routes/portfolio.video-content'
 import { Route as PortfolioAdCreativesRouteImport } from './routes/portfolio.ad-creatives'
-import { Route as LocationsThaneRouteImport } from './routes/locations.thane'
-import { Route as LocationsPowaiRouteImport } from './routes/locations.powai'
-import { Route as LocationsBandraRouteImport } from './routes/locations.bandra'
-import { Route as LocationsAndheriRouteImport } from './routes/locations.andheri'
-import { Route as IndustriesRestaurantsRouteImport } from './routes/industries.restaurants'
-import { Route as IndustriesRealEstateRouteImport } from './routes/industries.real-estate'
-import { Route as IndustriesFitnessRouteImport } from './routes/industries.fitness'
-import { Route as IndustriesD2cBrandsRouteImport } from './routes/industries.d2c-brands'
 import { Route as PortfolioVideoContentIndustryRouteImport } from './routes/portfolio.video-content.$industry'
 import { Route as PortfolioAdCreativesIndustryRouteImport } from './routes/portfolio.ad-creatives.$industry'
 
@@ -47,11 +38,6 @@ const PackagesRoute = PackagesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -109,46 +95,6 @@ const PortfolioAdCreativesRoute = PortfolioAdCreativesRouteImport.update({
   path: '/ad-creatives',
   getParentRoute: () => PortfolioRoute,
 } as any)
-const LocationsThaneRoute = LocationsThaneRouteImport.update({
-  id: '/locations/thane',
-  path: '/locations/thane',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocationsPowaiRoute = LocationsPowaiRouteImport.update({
-  id: '/locations/powai',
-  path: '/locations/powai',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocationsBandraRoute = LocationsBandraRouteImport.update({
-  id: '/locations/bandra',
-  path: '/locations/bandra',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocationsAndheriRoute = LocationsAndheriRouteImport.update({
-  id: '/locations/andheri',
-  path: '/locations/andheri',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesRestaurantsRoute = IndustriesRestaurantsRouteImport.update({
-  id: '/industries/restaurants',
-  path: '/industries/restaurants',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesRealEstateRoute = IndustriesRealEstateRouteImport.update({
-  id: '/industries/real-estate',
-  path: '/industries/real-estate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesFitnessRoute = IndustriesFitnessRouteImport.update({
-  id: '/industries/fitness',
-  path: '/industries/fitness',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesD2cBrandsRoute = IndustriesD2cBrandsRouteImport.update({
-  id: '/industries/d2c-brands',
-  path: '/industries/d2c-brands',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PortfolioVideoContentIndustryRoute =
   PortfolioVideoContentIndustryRouteImport.update({
     id: '/$industry',
@@ -165,18 +111,9 @@ const PortfolioAdCreativesIndustryRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
-  '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
-  '/industries/fitness': typeof IndustriesFitnessRoute
-  '/industries/real-estate': typeof IndustriesRealEstateRoute
-  '/industries/restaurants': typeof IndustriesRestaurantsRoute
-  '/locations/andheri': typeof LocationsAndheriRoute
-  '/locations/bandra': typeof LocationsBandraRoute
-  '/locations/powai': typeof LocationsPowaiRoute
-  '/locations/thane': typeof LocationsThaneRoute
   '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
   '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
@@ -191,18 +128,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
-  '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
-  '/industries/fitness': typeof IndustriesFitnessRoute
-  '/industries/real-estate': typeof IndustriesRealEstateRoute
-  '/industries/restaurants': typeof IndustriesRestaurantsRoute
-  '/locations/andheri': typeof LocationsAndheriRoute
-  '/locations/bandra': typeof LocationsBandraRoute
-  '/locations/powai': typeof LocationsPowaiRoute
-  '/locations/thane': typeof LocationsThaneRoute
   '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
   '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
@@ -218,18 +146,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
-  '/industries/d2c-brands': typeof IndustriesD2cBrandsRoute
-  '/industries/fitness': typeof IndustriesFitnessRoute
-  '/industries/real-estate': typeof IndustriesRealEstateRoute
-  '/industries/restaurants': typeof IndustriesRestaurantsRoute
-  '/locations/andheri': typeof LocationsAndheriRoute
-  '/locations/bandra': typeof LocationsBandraRoute
-  '/locations/powai': typeof LocationsPowaiRoute
-  '/locations/thane': typeof LocationsThaneRoute
   '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
   '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
@@ -246,18 +165,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog'
-    | '/case-studies'
     | '/contact'
     | '/packages'
     | '/portfolio'
-    | '/industries/d2c-brands'
-    | '/industries/fitness'
-    | '/industries/real-estate'
-    | '/industries/restaurants'
-    | '/locations/andheri'
-    | '/locations/bandra'
-    | '/locations/powai'
-    | '/locations/thane'
     | '/portfolio/ad-creatives'
     | '/portfolio/video-content'
     | '/portfolio/websites'
@@ -272,18 +182,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/blog'
-    | '/case-studies'
     | '/contact'
     | '/packages'
     | '/portfolio'
-    | '/industries/d2c-brands'
-    | '/industries/fitness'
-    | '/industries/real-estate'
-    | '/industries/restaurants'
-    | '/locations/andheri'
-    | '/locations/bandra'
-    | '/locations/powai'
-    | '/locations/thane'
     | '/portfolio/ad-creatives'
     | '/portfolio/video-content'
     | '/portfolio/websites'
@@ -298,18 +199,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/blog'
-    | '/case-studies'
     | '/contact'
     | '/packages'
     | '/portfolio'
-    | '/industries/d2c-brands'
-    | '/industries/fitness'
-    | '/industries/real-estate'
-    | '/industries/restaurants'
-    | '/locations/andheri'
-    | '/locations/bandra'
-    | '/locations/powai'
-    | '/locations/thane'
     | '/portfolio/ad-creatives'
     | '/portfolio/video-content'
     | '/portfolio/websites'
@@ -325,18 +217,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
-  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   PackagesRoute: typeof PackagesRoute
   PortfolioRoute: typeof PortfolioRouteWithChildren
-  IndustriesD2cBrandsRoute: typeof IndustriesD2cBrandsRoute
-  IndustriesFitnessRoute: typeof IndustriesFitnessRoute
-  IndustriesRealEstateRoute: typeof IndustriesRealEstateRoute
-  IndustriesRestaurantsRoute: typeof IndustriesRestaurantsRoute
-  LocationsAndheriRoute: typeof LocationsAndheriRoute
-  LocationsBandraRoute: typeof LocationsBandraRoute
-  LocationsPowaiRoute: typeof LocationsPowaiRoute
-  LocationsThaneRoute: typeof LocationsThaneRoute
   ServicesInstagramMarketingMumbaiRoute: typeof ServicesInstagramMarketingMumbaiRoute
   ServicesMetaAdsManagementMumbaiRoute: typeof ServicesMetaAdsManagementMumbaiRoute
   ServicesSocialMediaMarketingMumbaiRoute: typeof ServicesSocialMediaMarketingMumbaiRoute
@@ -365,13 +248,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -444,62 +320,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioAdCreativesRouteImport
       parentRoute: typeof PortfolioRoute
     }
-    '/locations/thane': {
-      id: '/locations/thane'
-      path: '/locations/thane'
-      fullPath: '/locations/thane'
-      preLoaderRoute: typeof LocationsThaneRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/locations/powai': {
-      id: '/locations/powai'
-      path: '/locations/powai'
-      fullPath: '/locations/powai'
-      preLoaderRoute: typeof LocationsPowaiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/locations/bandra': {
-      id: '/locations/bandra'
-      path: '/locations/bandra'
-      fullPath: '/locations/bandra'
-      preLoaderRoute: typeof LocationsBandraRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/locations/andheri': {
-      id: '/locations/andheri'
-      path: '/locations/andheri'
-      fullPath: '/locations/andheri'
-      preLoaderRoute: typeof LocationsAndheriRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/restaurants': {
-      id: '/industries/restaurants'
-      path: '/industries/restaurants'
-      fullPath: '/industries/restaurants'
-      preLoaderRoute: typeof IndustriesRestaurantsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/real-estate': {
-      id: '/industries/real-estate'
-      path: '/industries/real-estate'
-      fullPath: '/industries/real-estate'
-      preLoaderRoute: typeof IndustriesRealEstateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/fitness': {
-      id: '/industries/fitness'
-      path: '/industries/fitness'
-      fullPath: '/industries/fitness'
-      preLoaderRoute: typeof IndustriesFitnessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/d2c-brands': {
-      id: '/industries/d2c-brands'
-      path: '/industries/d2c-brands'
-      fullPath: '/industries/d2c-brands'
-      preLoaderRoute: typeof IndustriesD2cBrandsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/portfolio/video-content/$industry': {
       id: '/portfolio/video-content/$industry'
       path: '/$industry'
@@ -560,18 +380,9 @@ const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
-  CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   PackagesRoute: PackagesRoute,
   PortfolioRoute: PortfolioRouteWithChildren,
-  IndustriesD2cBrandsRoute: IndustriesD2cBrandsRoute,
-  IndustriesFitnessRoute: IndustriesFitnessRoute,
-  IndustriesRealEstateRoute: IndustriesRealEstateRoute,
-  IndustriesRestaurantsRoute: IndustriesRestaurantsRoute,
-  LocationsAndheriRoute: LocationsAndheriRoute,
-  LocationsBandraRoute: LocationsBandraRoute,
-  LocationsPowaiRoute: LocationsPowaiRoute,
-  LocationsThaneRoute: LocationsThaneRoute,
   ServicesInstagramMarketingMumbaiRoute: ServicesInstagramMarketingMumbaiRoute,
   ServicesMetaAdsManagementMumbaiRoute: ServicesMetaAdsManagementMumbaiRoute,
   ServicesSocialMediaMarketingMumbaiRoute:

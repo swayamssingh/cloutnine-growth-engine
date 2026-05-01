@@ -8,9 +8,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact CloutNine | Free Social Media Audit | Mumbai" },
-      { name: "description", content: "Get a free 48-hour social media audit from CloutNine, Mumbai. WhatsApp, email or walk in to our Andheri studio." },
+      { name: "description", content: "Get a free 48-hour social media audit from CloutNine, Mumbai. WhatsApp or email us to get started." },
       { property: "og:title", content: "Contact CloutNine | Free Audit | Mumbai" },
-      { property: "og:description", content: "Free 48-hour social media audit. WhatsApp us or walk into our Andheri studio." },
+      { property: "og:description", content: "Free 48-hour social media audit. WhatsApp or email us to get started." },
     ],
   }),
   component: Contact,

@@ -28,7 +28,7 @@ export const localBusinessSchema = {
     ...SITE.address,
   },
   geo: { "@type": "GeoCoordinates", ...SITE.geo },
-  areaServed: ["Mumbai", "Andheri", "Bandra", "Powai", "Thane", "Navi Mumbai"],
+  areaServed: ["Mumbai"],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],

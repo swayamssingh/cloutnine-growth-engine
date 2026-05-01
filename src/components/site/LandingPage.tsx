@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Section, FAQ, MetricCard } from "@/components/site/Section";
+import { Section, FAQ } from "@/components/site/Section";
 import { AuditForm } from "@/components/site/AuditForm";
 import { Check } from "lucide-react";
 
@@ -8,7 +8,6 @@ export type LandingPageProps = {
   eyebrow: string;
   h1: ReactNode;
   intro: string;
-  metrics: { value: string; label: string }[];
   deliverables: { title: string; body: string }[];
   process: { step: string; title: string; body: string }[];
   proofPoints: string[];
@@ -37,7 +36,7 @@ export function LandingPage(props: LandingPageProps) {
                   Get Your Free Audit →
                 </Link>
                 <Link
-                  to="/case-studies"
+                  to="/portfolio"
                   className="glass inline-flex h-12 items-center rounded-full px-6 text-sm text-foreground"
                 >
                   See the work
@@ -50,15 +49,6 @@ export function LandingPage(props: LandingPageProps) {
           </div>
         </div>
       </section>
-
-      {/* Metrics */}
-      <Section className="!py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {props.metrics.map((m) => (
-            <MetricCard key={m.label} {...m} />
-          ))}
-        </div>
-      </Section>
 
       {/* Deliverables */}
       <Section eyebrow="What you get" title="Built as a system, not deliverables.">
