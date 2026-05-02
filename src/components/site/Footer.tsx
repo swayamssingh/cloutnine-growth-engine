@@ -10,12 +10,20 @@ const SERVICES = [
   { to: "/services/whatsapp-marketing-mumbai", label: "WhatsApp Marketing" },
 ] as const;
 
+const RESOURCES = [
+  { to: "/social-media-marketing-cost-mumbai", label: "Social Media Marketing Cost" },
+  { to: "/how-to-choose-social-media-agency-mumbai", label: "How to Choose an Agency" },
+  { to: "/social-media-marketing-for-restaurants-mumbai", label: "For Restaurants" },
+  { to: "/instagram-marketing-agency-mumbai-guide", label: "Instagram Agency Guide" },
+  { to: "/social-media-agency-vs-inhouse-vs-freelancer-mumbai", label: "Agency vs In-house vs Freelancer" },
+] as const;
+
 
 export function Footer() {
   return (
     <footer className="border-t border-[color:var(--color-hairline)] mt-32">
       <div className="container-x py-20">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2">
             <div className="flex items-center gap-3">
               <LogoMark className="h-9 w-9 text-foreground" />
@@ -34,6 +42,7 @@ export function Footer() {
           </div>
 
           <FooterCol title="Services" items={SERVICES} />
+          <FooterCol title="Resources" items={RESOURCES} />
         </div>
 
         <div className="mt-16 hairline pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-muted-foreground">
