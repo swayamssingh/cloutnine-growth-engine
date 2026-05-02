@@ -9,8 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SocialMediaMarketingForRestaurantsMumbaiRouteImport } from './routes/social-media-marketing-for-restaurants-mumbai'
+import { Route as SocialMediaMarketingCostMumbaiRouteImport } from './routes/social-media-marketing-cost-mumbai'
+import { Route as SocialMediaAgencyVsInhouseVsFreelancerMumbaiRouteImport } from './routes/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as InstagramMarketingAgencyMumbaiGuideRouteImport } from './routes/instagram-marketing-agency-mumbai-guide'
+import { Route as HowToChooseSocialMediaAgencyMumbaiRouteImport } from './routes/how-to-choose-social-media-agency-mumbai'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
@@ -25,6 +30,24 @@ import { Route as PortfolioAdCreativesRouteImport } from './routes/portfolio.ad-
 import { Route as PortfolioVideoContentIndustryRouteImport } from './routes/portfolio.video-content.$industry'
 import { Route as PortfolioAdCreativesIndustryRouteImport } from './routes/portfolio.ad-creatives.$industry'
 
+const SocialMediaMarketingForRestaurantsMumbaiRoute =
+  SocialMediaMarketingForRestaurantsMumbaiRouteImport.update({
+    id: '/social-media-marketing-for-restaurants-mumbai',
+    path: '/social-media-marketing-for-restaurants-mumbai',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SocialMediaMarketingCostMumbaiRoute =
+  SocialMediaMarketingCostMumbaiRouteImport.update({
+    id: '/social-media-marketing-cost-mumbai',
+    path: '/social-media-marketing-cost-mumbai',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute =
+  SocialMediaAgencyVsInhouseVsFreelancerMumbaiRouteImport.update({
+    id: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai',
+    path: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
@@ -35,6 +58,18 @@ const PackagesRoute = PackagesRouteImport.update({
   path: '/packages',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InstagramMarketingAgencyMumbaiGuideRoute =
+  InstagramMarketingAgencyMumbaiGuideRouteImport.update({
+    id: '/instagram-marketing-agency-mumbai-guide',
+    path: '/instagram-marketing-agency-mumbai-guide',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HowToChooseSocialMediaAgencyMumbaiRoute =
+  HowToChooseSocialMediaAgencyMumbaiRouteImport.update({
+    id: '/how-to-choose-social-media-agency-mumbai',
+    path: '/how-to-choose-social-media-agency-mumbai',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -112,8 +147,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
+  '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
+  '/social-media-agency-vs-inhouse-vs-freelancer-mumbai': typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
+  '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
+  '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
   '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
@@ -129,8 +169,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
+  '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
+  '/social-media-agency-vs-inhouse-vs-freelancer-mumbai': typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
+  '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
+  '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
   '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
@@ -147,8 +192,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
+  '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
   '/packages': typeof PackagesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
+  '/social-media-agency-vs-inhouse-vs-freelancer-mumbai': typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
+  '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
+  '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
   '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
   '/portfolio/websites': typeof PortfolioWebsitesRoute
@@ -166,8 +216,13 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/contact'
+    | '/how-to-choose-social-media-agency-mumbai'
+    | '/instagram-marketing-agency-mumbai-guide'
     | '/packages'
     | '/portfolio'
+    | '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
+    | '/social-media-marketing-cost-mumbai'
+    | '/social-media-marketing-for-restaurants-mumbai'
     | '/portfolio/ad-creatives'
     | '/portfolio/video-content'
     | '/portfolio/websites'
@@ -183,8 +238,13 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/contact'
+    | '/how-to-choose-social-media-agency-mumbai'
+    | '/instagram-marketing-agency-mumbai-guide'
     | '/packages'
     | '/portfolio'
+    | '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
+    | '/social-media-marketing-cost-mumbai'
+    | '/social-media-marketing-for-restaurants-mumbai'
     | '/portfolio/ad-creatives'
     | '/portfolio/video-content'
     | '/portfolio/websites'
@@ -200,8 +260,13 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/contact'
+    | '/how-to-choose-social-media-agency-mumbai'
+    | '/instagram-marketing-agency-mumbai-guide'
     | '/packages'
     | '/portfolio'
+    | '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
+    | '/social-media-marketing-cost-mumbai'
+    | '/social-media-marketing-for-restaurants-mumbai'
     | '/portfolio/ad-creatives'
     | '/portfolio/video-content'
     | '/portfolio/websites'
@@ -218,8 +283,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
+  HowToChooseSocialMediaAgencyMumbaiRoute: typeof HowToChooseSocialMediaAgencyMumbaiRoute
+  InstagramMarketingAgencyMumbaiGuideRoute: typeof InstagramMarketingAgencyMumbaiGuideRoute
   PackagesRoute: typeof PackagesRoute
   PortfolioRoute: typeof PortfolioRouteWithChildren
+  SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute: typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
+  SocialMediaMarketingCostMumbaiRoute: typeof SocialMediaMarketingCostMumbaiRoute
+  SocialMediaMarketingForRestaurantsMumbaiRoute: typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   ServicesInstagramMarketingMumbaiRoute: typeof ServicesInstagramMarketingMumbaiRoute
   ServicesMetaAdsManagementMumbaiRoute: typeof ServicesMetaAdsManagementMumbaiRoute
   ServicesSocialMediaMarketingMumbaiRoute: typeof ServicesSocialMediaMarketingMumbaiRoute
@@ -229,6 +299,27 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/social-media-marketing-for-restaurants-mumbai': {
+      id: '/social-media-marketing-for-restaurants-mumbai'
+      path: '/social-media-marketing-for-restaurants-mumbai'
+      fullPath: '/social-media-marketing-for-restaurants-mumbai'
+      preLoaderRoute: typeof SocialMediaMarketingForRestaurantsMumbaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-media-marketing-cost-mumbai': {
+      id: '/social-media-marketing-cost-mumbai'
+      path: '/social-media-marketing-cost-mumbai'
+      fullPath: '/social-media-marketing-cost-mumbai'
+      preLoaderRoute: typeof SocialMediaMarketingCostMumbaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-media-agency-vs-inhouse-vs-freelancer-mumbai': {
+      id: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
+      path: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
+      fullPath: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
+      preLoaderRoute: typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
@@ -241,6 +332,20 @@ declare module '@tanstack/react-router' {
       path: '/packages'
       fullPath: '/packages'
       preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instagram-marketing-agency-mumbai-guide': {
+      id: '/instagram-marketing-agency-mumbai-guide'
+      path: '/instagram-marketing-agency-mumbai-guide'
+      fullPath: '/instagram-marketing-agency-mumbai-guide'
+      preLoaderRoute: typeof InstagramMarketingAgencyMumbaiGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to-choose-social-media-agency-mumbai': {
+      id: '/how-to-choose-social-media-agency-mumbai'
+      path: '/how-to-choose-social-media-agency-mumbai'
+      fullPath: '/how-to-choose-social-media-agency-mumbai'
+      preLoaderRoute: typeof HowToChooseSocialMediaAgencyMumbaiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -381,8 +486,17 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
+  HowToChooseSocialMediaAgencyMumbaiRoute:
+    HowToChooseSocialMediaAgencyMumbaiRoute,
+  InstagramMarketingAgencyMumbaiGuideRoute:
+    InstagramMarketingAgencyMumbaiGuideRoute,
   PackagesRoute: PackagesRoute,
   PortfolioRoute: PortfolioRouteWithChildren,
+  SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute:
+    SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute,
+  SocialMediaMarketingCostMumbaiRoute: SocialMediaMarketingCostMumbaiRoute,
+  SocialMediaMarketingForRestaurantsMumbaiRoute:
+    SocialMediaMarketingForRestaurantsMumbaiRoute,
   ServicesInstagramMarketingMumbaiRoute: ServicesInstagramMarketingMumbaiRoute,
   ServicesMetaAdsManagementMumbaiRoute: ServicesMetaAdsManagementMumbaiRoute,
   ServicesSocialMediaMarketingMumbaiRoute:
