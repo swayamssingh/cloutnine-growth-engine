@@ -35,12 +35,12 @@ export function LandingPage(props: LandingPageProps) {
                 >
                   Get Your Free Audit →
                 </Link>
-                <Link
-                  to="/portfolio"
+                <a
+                  href="https://portfolio.cloutnine.in"
                   className="glass inline-flex h-12 items-center rounded-full px-6 text-sm text-foreground"
                 >
                   See the work
-                </Link>
+                </a>
               </div>
             </div>
             <div className="lg:col-span-4">

@@ -54,8 +54,8 @@ export function PortfolioPreview() {
       style={{ background: "#000", paddingTop: 120, paddingBottom: 120 }}
       className="relative text-white"
     >
-      <Link
-        to="/portfolio"
+      <a
+        href="https://portfolio.cloutnine.in"
         aria-label="View full portfolio"
         className="absolute inset-0 z-10"
       />
@@ -74,12 +74,12 @@ export function PortfolioPreview() {
             </p>
           </div>
 
-          <Link
-            to="/portfolio"
+          <a
+            href="https://portfolio.cloutnine.in"
             className="hidden md:inline-flex pointer-events-auto items-center gap-2 text-sm text-white/40 hover:text-white transition-colors duration-300"
           >
             View full portfolio →
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -117,12 +117,12 @@ export function PortfolioPreview() {
       </div>
 
       <div className="container-x relative z-20 mt-8 md:hidden pointer-events-none">
-        <Link
-          to="/portfolio"
+        <a
+          href="https://portfolio.cloutnine.in"
           className="inline-flex pointer-events-auto items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
         >
           View full portfolio →
-        </Link>
+        </a>
       </div>
 
       <style>{`

@@ -73,12 +73,12 @@ export function VideoHero() {
                   Get Your Free Audit
                   <ArrowUpRight size={16} />
                 </Link>
-                <Link
-                  to="/portfolio"
+                <a
+                  href="https://portfolio.cloutnine.in"
                   className="glass inline-flex h-12 items-center rounded-full px-6 text-sm text-white/90"
                 >
                   See the work
-                </Link>
+                </a>
               </div>
             </div>
           </div>
