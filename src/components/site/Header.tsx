@@ -68,16 +68,27 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-[color:var(--color-hairline)] bg-background">
           <div className="container-x py-6 flex flex-col gap-4">
-            {NAV.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="text-lg text-foreground/90"
-              >
-                {n.label}
-              </Link>
-            ))}
+            {NAV.map((n) =>
+              "external" in n && n.external ? (
+                <a
+                  key={n.to}
+                  href={n.to}
+                  onClick={() => setOpen(false)}
+                  className="text-lg text-foreground/90"
+                >
+                  {n.label}
+                </a>
+              ) : (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className="text-lg text-foreground/90"
+                >
+                  {n.label}
+                </Link>
+              )
+            )}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
