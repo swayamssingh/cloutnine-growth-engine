@@ -1,13 +1,5 @@
-import "@fontsource/bebas-neue/400.css";
-import "@fontsource/dm-sans/400.css";
-import "@fontsource/dm-sans/500.css";
-import "@fontsource/dm-sans/700.css";
-import "@fontsource/instrument-serif/400.css";
-import "@fontsource/instrument-serif/400-italic.css";
+import { Outlet, Link, createRootRoute, HeadContent } from "@tanstack/react-router";
 
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { StickyWhatsApp } from "@/components/site/StickyWhatsApp";
@@ -40,8 +32,6 @@ function NotFoundComponent() {
 export const Route = createRootRoute({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "CloutNine — Social Media Agency Mumbai | Performance Marketing" },
       {
         name: "description",
@@ -51,33 +41,17 @@ export const Route = createRootRoute({
       { name: "author", content: "CloutNine" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#080808" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
     scripts: [jsonLd(localBusinessSchema)],
   }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
 
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
 function RootComponent() {
   return (
     <ThemeProvider>
+      <HeadContent />
       <div className="min-h-screen flex flex-col bg-background text-foreground">
         <AuroraCursor />
         <Header />
