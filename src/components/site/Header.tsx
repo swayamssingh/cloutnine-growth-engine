@@ -6,7 +6,7 @@ import { ThemeToggle } from "@/components/site/ThemeProvider";
 
 const NAV = [
   { to: "/services/social-media-marketing-mumbai", label: "Services" },
-  { to: "/portfolio", label: "Portfolio" },
+  { to: "https://portfolio.cloutnine.in", label: "Portfolio", external: true },
   { to: "/packages", label: "Packages" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -25,16 +25,26 @@ export function Header() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
-          {NAV.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              activeProps={{ className: "text-foreground" }}
-            >
-              {n.label}
-            </Link>
-          ))}
+          {NAV.map((n) =>
+            "external" in n && n.external ? (
+              <a
+                key={n.to}
+                href={n.to}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {n.label}
+              </a>
+            ) : (
+              <Link
+                key={n.to}
+                to={n.to}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                activeProps={{ className: "text-foreground" }}
+              >
+                {n.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -58,16 +68,27 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-[color:var(--color-hairline)] bg-background">
           <div className="container-x py-6 flex flex-col gap-4">
-            {NAV.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="text-lg text-foreground/90"
-              >
-                {n.label}
-              </Link>
-            ))}
+            {NAV.map((n) =>
+              "external" in n && n.external ? (
+                <a
+                  key={n.to}
+                  href={n.to}
+                  onClick={() => setOpen(false)}
+                  className="text-lg text-foreground/90"
+                >
+                  {n.label}
+                </a>
+              ) : (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className="text-lg text-foreground/90"
+                >
+                  {n.label}
+                </Link>
+              )
+            )}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
