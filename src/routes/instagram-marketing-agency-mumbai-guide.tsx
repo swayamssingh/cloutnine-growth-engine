@@ -54,7 +54,7 @@ function Page() {
 
       <h2 className="display text-2xl mt-12">Instagram Growth Agency vs. Doing It In-House</h2>
       <p>For most businesses in Mumbai, the agency model works better than in-house at the growth stage because Instagram requires both creative output and strategic consistency — two things that are hard to maintain when the person responsible for Instagram also has ten other responsibilities. The tipping point where in-house makes more sense is when your Instagram volume and business are large enough to justify a dedicated social media manager plus a content production budget. Before that point, an agency with Mumbai-specific experience will almost always outperform a generalist in-house resource.</p>
-      <p>See <Link to="/services/instagram-marketing-mumbai" className="underline">our Instagram marketing service</Link> and <Link to="/portfolio" className="underline">portfolio</Link>.</p>
+      <p>See <Link to="/services/instagram-marketing-mumbai" className="underline">our Instagram marketing service</Link> and <a href="https://portfolio.cloutnine.in" className="underline">portfolio</a>.</p>
 
       <h2 className="display text-2xl mt-12">The Honest Reality of Instagram Marketing in Mumbai</h2>
       <p>Growing on Instagram in Mumbai in 2025 takes longer than most people expect and requires more consistency than most businesses are willing to commit to. The accounts that have built real audiences — 10,000 to 100,000 engaged followers from the right geography — have been at it for one to three years with a disciplined approach. There's no shortcut through buying followers or gaming the algorithm. Both tactics produce metrics that look good in screenshots and produce no business value.</p>

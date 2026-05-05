@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SocialMediaMarketingForRestaurantsMumbaiRouteImport } from './routes/social-media-marketing-for-restaurants-mumbai'
 import { Route as SocialMediaMarketingCostMumbaiRouteImport } from './routes/social-media-marketing-cost-mumbai'
 import { Route as SocialMediaAgencyVsInhouseVsFreelancerMumbaiRouteImport } from './routes/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
-import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as InstagramMarketingAgencyMumbaiGuideRouteImport } from './routes/instagram-marketing-agency-mumbai-guide'
 import { Route as HowToChooseSocialMediaAgencyMumbaiRouteImport } from './routes/how-to-choose-social-media-agency-mumbai'
@@ -24,11 +23,6 @@ import { Route as ServicesWebsiteDevelopmentMumbaiRouteImport } from './routes/s
 import { Route as ServicesSocialMediaMarketingMumbaiRouteImport } from './routes/services.social-media-marketing-mumbai'
 import { Route as ServicesMetaAdsManagementMumbaiRouteImport } from './routes/services.meta-ads-management-mumbai'
 import { Route as ServicesInstagramMarketingMumbaiRouteImport } from './routes/services.instagram-marketing-mumbai'
-import { Route as PortfolioWebsitesRouteImport } from './routes/portfolio.websites'
-import { Route as PortfolioVideoContentRouteImport } from './routes/portfolio.video-content'
-import { Route as PortfolioAdCreativesRouteImport } from './routes/portfolio.ad-creatives'
-import { Route as PortfolioVideoContentIndustryRouteImport } from './routes/portfolio.video-content.$industry'
-import { Route as PortfolioAdCreativesIndustryRouteImport } from './routes/portfolio.ad-creatives.$industry'
 
 const SocialMediaMarketingForRestaurantsMumbaiRoute =
   SocialMediaMarketingForRestaurantsMumbaiRouteImport.update({
@@ -48,11 +42,6 @@ const SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute =
     path: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai',
     getParentRoute: () => rootRouteImport,
   } as any)
-const PortfolioRoute = PortfolioRouteImport.update({
-  id: '/portfolio',
-  path: '/portfolio',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
@@ -115,33 +104,6 @@ const ServicesInstagramMarketingMumbaiRoute =
     path: '/services/instagram-marketing-mumbai',
     getParentRoute: () => rootRouteImport,
   } as any)
-const PortfolioWebsitesRoute = PortfolioWebsitesRouteImport.update({
-  id: '/websites',
-  path: '/websites',
-  getParentRoute: () => PortfolioRoute,
-} as any)
-const PortfolioVideoContentRoute = PortfolioVideoContentRouteImport.update({
-  id: '/video-content',
-  path: '/video-content',
-  getParentRoute: () => PortfolioRoute,
-} as any)
-const PortfolioAdCreativesRoute = PortfolioAdCreativesRouteImport.update({
-  id: '/ad-creatives',
-  path: '/ad-creatives',
-  getParentRoute: () => PortfolioRoute,
-} as any)
-const PortfolioVideoContentIndustryRoute =
-  PortfolioVideoContentIndustryRouteImport.update({
-    id: '/$industry',
-    path: '/$industry',
-    getParentRoute: () => PortfolioVideoContentRoute,
-  } as any)
-const PortfolioAdCreativesIndustryRoute =
-  PortfolioAdCreativesIndustryRouteImport.update({
-    id: '/$industry',
-    path: '/$industry',
-    getParentRoute: () => PortfolioAdCreativesRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -150,20 +112,14 @@ export interface FileRoutesByFullPath {
   '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
   '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
   '/packages': typeof PackagesRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/social-media-agency-vs-inhouse-vs-freelancer-mumbai': typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
   '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
   '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
-  '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
-  '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
-  '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
-  '/portfolio/ad-creatives/$industry': typeof PortfolioAdCreativesIndustryRoute
-  '/portfolio/video-content/$industry': typeof PortfolioVideoContentIndustryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -172,20 +128,14 @@ export interface FileRoutesByTo {
   '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
   '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
   '/packages': typeof PackagesRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/social-media-agency-vs-inhouse-vs-freelancer-mumbai': typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
   '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
   '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
-  '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
-  '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
-  '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
-  '/portfolio/ad-creatives/$industry': typeof PortfolioAdCreativesIndustryRoute
-  '/portfolio/video-content/$industry': typeof PortfolioVideoContentIndustryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -195,20 +145,14 @@ export interface FileRoutesById {
   '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
   '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
   '/packages': typeof PackagesRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/social-media-agency-vs-inhouse-vs-freelancer-mumbai': typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
   '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
   '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
-  '/portfolio/ad-creatives': typeof PortfolioAdCreativesRouteWithChildren
-  '/portfolio/video-content': typeof PortfolioVideoContentRouteWithChildren
-  '/portfolio/websites': typeof PortfolioWebsitesRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
-  '/portfolio/ad-creatives/$industry': typeof PortfolioAdCreativesIndustryRoute
-  '/portfolio/video-content/$industry': typeof PortfolioVideoContentIndustryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -219,20 +163,14 @@ export interface FileRouteTypes {
     | '/how-to-choose-social-media-agency-mumbai'
     | '/instagram-marketing-agency-mumbai-guide'
     | '/packages'
-    | '/portfolio'
     | '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
     | '/social-media-marketing-cost-mumbai'
     | '/social-media-marketing-for-restaurants-mumbai'
-    | '/portfolio/ad-creatives'
-    | '/portfolio/video-content'
-    | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
-    | '/portfolio/ad-creatives/$industry'
-    | '/portfolio/video-content/$industry'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -241,20 +179,14 @@ export interface FileRouteTypes {
     | '/how-to-choose-social-media-agency-mumbai'
     | '/instagram-marketing-agency-mumbai-guide'
     | '/packages'
-    | '/portfolio'
     | '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
     | '/social-media-marketing-cost-mumbai'
     | '/social-media-marketing-for-restaurants-mumbai'
-    | '/portfolio/ad-creatives'
-    | '/portfolio/video-content'
-    | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
-    | '/portfolio/ad-creatives/$industry'
-    | '/portfolio/video-content/$industry'
   id:
     | '__root__'
     | '/'
@@ -263,20 +195,14 @@ export interface FileRouteTypes {
     | '/how-to-choose-social-media-agency-mumbai'
     | '/instagram-marketing-agency-mumbai-guide'
     | '/packages'
-    | '/portfolio'
     | '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
     | '/social-media-marketing-cost-mumbai'
     | '/social-media-marketing-for-restaurants-mumbai'
-    | '/portfolio/ad-creatives'
-    | '/portfolio/video-content'
-    | '/portfolio/websites'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
-    | '/portfolio/ad-creatives/$industry'
-    | '/portfolio/video-content/$industry'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -286,7 +212,6 @@ export interface RootRouteChildren {
   HowToChooseSocialMediaAgencyMumbaiRoute: typeof HowToChooseSocialMediaAgencyMumbaiRoute
   InstagramMarketingAgencyMumbaiGuideRoute: typeof InstagramMarketingAgencyMumbaiGuideRoute
   PackagesRoute: typeof PackagesRoute
-  PortfolioRoute: typeof PortfolioRouteWithChildren
   SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute: typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute
   SocialMediaMarketingCostMumbaiRoute: typeof SocialMediaMarketingCostMumbaiRoute
   SocialMediaMarketingForRestaurantsMumbaiRoute: typeof SocialMediaMarketingForRestaurantsMumbaiRoute
@@ -318,13 +243,6 @@ declare module '@tanstack/react-router' {
       path: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
       fullPath: '/social-media-agency-vs-inhouse-vs-freelancer-mumbai'
       preLoaderRoute: typeof SocialMediaAgencyVsInhouseVsFreelancerMumbaiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portfolio': {
-      id: '/portfolio'
-      path: '/portfolio'
-      fullPath: '/portfolio'
-      preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages': {
@@ -404,83 +322,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesInstagramMarketingMumbaiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portfolio/websites': {
-      id: '/portfolio/websites'
-      path: '/websites'
-      fullPath: '/portfolio/websites'
-      preLoaderRoute: typeof PortfolioWebsitesRouteImport
-      parentRoute: typeof PortfolioRoute
-    }
-    '/portfolio/video-content': {
-      id: '/portfolio/video-content'
-      path: '/video-content'
-      fullPath: '/portfolio/video-content'
-      preLoaderRoute: typeof PortfolioVideoContentRouteImport
-      parentRoute: typeof PortfolioRoute
-    }
-    '/portfolio/ad-creatives': {
-      id: '/portfolio/ad-creatives'
-      path: '/ad-creatives'
-      fullPath: '/portfolio/ad-creatives'
-      preLoaderRoute: typeof PortfolioAdCreativesRouteImport
-      parentRoute: typeof PortfolioRoute
-    }
-    '/portfolio/video-content/$industry': {
-      id: '/portfolio/video-content/$industry'
-      path: '/$industry'
-      fullPath: '/portfolio/video-content/$industry'
-      preLoaderRoute: typeof PortfolioVideoContentIndustryRouteImport
-      parentRoute: typeof PortfolioVideoContentRoute
-    }
-    '/portfolio/ad-creatives/$industry': {
-      id: '/portfolio/ad-creatives/$industry'
-      path: '/$industry'
-      fullPath: '/portfolio/ad-creatives/$industry'
-      preLoaderRoute: typeof PortfolioAdCreativesIndustryRouteImport
-      parentRoute: typeof PortfolioAdCreativesRoute
-    }
   }
 }
-
-interface PortfolioAdCreativesRouteChildren {
-  PortfolioAdCreativesIndustryRoute: typeof PortfolioAdCreativesIndustryRoute
-}
-
-const PortfolioAdCreativesRouteChildren: PortfolioAdCreativesRouteChildren = {
-  PortfolioAdCreativesIndustryRoute: PortfolioAdCreativesIndustryRoute,
-}
-
-const PortfolioAdCreativesRouteWithChildren =
-  PortfolioAdCreativesRoute._addFileChildren(PortfolioAdCreativesRouteChildren)
-
-interface PortfolioVideoContentRouteChildren {
-  PortfolioVideoContentIndustryRoute: typeof PortfolioVideoContentIndustryRoute
-}
-
-const PortfolioVideoContentRouteChildren: PortfolioVideoContentRouteChildren = {
-  PortfolioVideoContentIndustryRoute: PortfolioVideoContentIndustryRoute,
-}
-
-const PortfolioVideoContentRouteWithChildren =
-  PortfolioVideoContentRoute._addFileChildren(
-    PortfolioVideoContentRouteChildren,
-  )
-
-interface PortfolioRouteChildren {
-  PortfolioAdCreativesRoute: typeof PortfolioAdCreativesRouteWithChildren
-  PortfolioVideoContentRoute: typeof PortfolioVideoContentRouteWithChildren
-  PortfolioWebsitesRoute: typeof PortfolioWebsitesRoute
-}
-
-const PortfolioRouteChildren: PortfolioRouteChildren = {
-  PortfolioAdCreativesRoute: PortfolioAdCreativesRouteWithChildren,
-  PortfolioVideoContentRoute: PortfolioVideoContentRouteWithChildren,
-  PortfolioWebsitesRoute: PortfolioWebsitesRoute,
-}
-
-const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
-  PortfolioRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -491,7 +334,6 @@ const rootRouteChildren: RootRouteChildren = {
   InstagramMarketingAgencyMumbaiGuideRoute:
     InstagramMarketingAgencyMumbaiGuideRoute,
   PackagesRoute: PackagesRoute,
-  PortfolioRoute: PortfolioRouteWithChildren,
   SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute:
     SocialMediaAgencyVsInhouseVsFreelancerMumbaiRoute,
   SocialMediaMarketingCostMumbaiRoute: SocialMediaMarketingCostMumbaiRoute,
@@ -507,3 +349,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

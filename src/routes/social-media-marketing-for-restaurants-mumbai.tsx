@@ -61,7 +61,7 @@ function Page() {
       <h2 className="display text-2xl mt-12">What a Social Media Agency Should Do for Your Restaurant</h2>
       <p>If you're considering hiring a social media agency for your restaurant in Mumbai, the scope of work should include: content strategy and calendar planning, either content production or direction of your in-house shoot, Instagram and Facebook management including community response, and monthly performance reporting with restaurant-specific KPIs — reach among local audience, profile visits, saved posts, and direction requests if you have Google Maps integration.</p>
       <p>The agency should understand the food and beverage category specifically. Restaurant social media is different from retail, D2C, or B2B social media in important ways — the purchase decision is emotional and immediate, the visual standard is high, and the audience is local. An agency that treats all industries the same will produce average results.</p>
-      <p>See <Link to="/services/social-media-marketing-mumbai" className="underline">our F&amp;B services</Link> and <Link to="/portfolio" className="underline">portfolio</Link>.</p>
+      <p>See <Link to="/services/social-media-marketing-mumbai" className="underline">our F&amp;B services</Link> and <a href="https://portfolio.cloutnine.in" className="underline">portfolio</a>.</p>
 
       <h2 className="display text-2xl mt-12">Metrics That Actually Matter for Restaurant Social Media</h2>
       <p>Stop measuring follower count as your primary metric. It tells you almost nothing about business performance. The metrics worth tracking for a restaurant's social media in Mumbai:</p>
