@@ -6,9 +6,21 @@ export function VideoHero() {
     <section className="relative overflow-hidden">
       <div className="hero-grid" aria-hidden="true" />
       <div className="container-x relative pt-8 pb-10 md:pt-12 md:pb-16">
-        <div className="video-shell relative aspect-[16/9] md:aspect-[21/9] w-full bg-black">
+        <div className="video-shell relative aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] w-full bg-black">
+          {/* Mobile video */}
           <video
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover sm:hidden"
+            src="/hero-mobile.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          />
+          {/* Desktop / tablet video */}
+          <video
+            className="absolute inset-0 h-full w-full object-cover hidden sm:block"
             src="/hero.mp4"
             autoPlay
             muted
