@@ -1,32 +1,47 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export function VideoHero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [src, setSrc] = useState("/hero.mp4");
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 639px)");
+    const update = () => setSrc(mql.matches ? "/hero-mobile.mp4" : "/hero.mp4");
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.load();
+    const tryPlay = () => v.play().catch(() => {});
+    tryPlay();
+    v.addEventListener("canplay", tryPlay, { once: true });
+    return () => v.removeEventListener("canplay", tryPlay);
+  }, [src]);
+
   return (
     <section className="relative overflow-hidden">
       <div className="hero-grid" aria-hidden="true" />
       <div className="container-x relative pt-8 pb-10 md:pt-12 md:pb-16">
         <div className="video-shell relative aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] w-full bg-black">
-          {/* Mobile video */}
           <video
-            className="absolute inset-0 h-full w-full object-cover sm:hidden"
-            src="/hero-mobile.mp4"
+            ref={videoRef}
+            key={src}
+            className="absolute inset-0 h-full w-full object-cover"
+            src={src}
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            aria-hidden="true"
-          />
-          {/* Desktop / tablet video */}
-          <video
-            className="absolute inset-0 h-full w-full object-cover hidden sm:block"
-            src="/hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
+            controls={false}
+            disablePictureInPicture
             aria-hidden="true"
           />
 
