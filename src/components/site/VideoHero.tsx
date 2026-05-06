@@ -56,7 +56,7 @@ export function VideoHero() {
                   className="block italic font-normal text-white/95"
                   style={{
                     fontFamily: "'Instrument Serif', Georgia, serif",
-                    fontSize: "clamp(2.5rem, 8vw, 7.5rem)",
+                    fontSize: "clamp(1.75rem, 8vw, 7.5rem)",
                     letterSpacing: "-0.01em",
                     lineHeight: 0.95,
                   }}
@@ -66,7 +66,7 @@ export function VideoHero() {
                 <span
                   className="display block text-white uppercase"
                   style={{
-                    fontSize: "clamp(4rem, 14vw, 13rem)",
+                    fontSize: "clamp(2.75rem, 14vw, 13rem)",
                     letterSpacing: "-0.025em",
                     lineHeight: 0.85,
                     marginTop: "0.05em",
