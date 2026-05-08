@@ -1,6 +1,25 @@
 import { Link } from "@tanstack/react-router";
+import { Linkedin, Facebook, Instagram } from "lucide-react";
 import { SITE } from "@/lib/seo";
 import { LogoMark } from "@/components/site/Logo";
+
+const SOCIALS = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/cloutnine-in/?viewAsMember=true",
+    Icon: Linkedin,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/people/cloutninein/61576100464851/",
+    Icon: Facebook,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/cloutnine.in/",
+    Icon: Instagram,
+  },
+] as const;
 
 const SERVICES = [
   { to: "/services/social-media-marketing-mumbai", label: "Social Media Marketing" },
@@ -45,12 +64,27 @@ export function Footer() {
           <FooterCol title="Resources" items={RESOURCES} />
         </div>
 
-        <div className="mt-16 hairline pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-muted-foreground">
+        <div className="mt-16 hairline pt-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} {SITE.name}. Built in Mumbai.</p>
-          <div className="flex flex-wrap gap-6">
-            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-            <a href={`tel:${SITE.phone}`}>{SITE.phone}</a>
+          <div className="flex flex-wrap items-center gap-6">
+            <a href={`mailto:${SITE.email}`} className="hover:text-foreground transition-colors">{SITE.email}</a>
+            <a href={`tel:${SITE.phone}`} className="hover:text-foreground transition-colors">{SITE.phone}</a>
             <span>Mumbai</span>
+            <div className="flex items-center gap-2 md:ml-2">
+              {SOCIALS.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="glass inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground/80 hover:text-foreground"
+                >
+                  <Icon className="h-4 w-4" strokeWidth={1.75} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
