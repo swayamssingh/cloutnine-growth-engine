@@ -68,13 +68,24 @@ export const Route = createRootRoute({
 
 function CanonicalLink() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const href = `${SITE.url}${pathname === "/" ? "" : pathname}`;
-  return (
-    <>
-      <link rel="canonical" href={href} />
-      <meta property="og:url" content={href} />
-    </>
-  );
+  useEffect(() => {
+    const href = `${SITE.url}${pathname === "/" ? "" : pathname}`;
+    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "canonical";
+      document.head.appendChild(link);
+    }
+    link.href = href;
+    let og = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
+    if (!og) {
+      og = document.createElement("meta");
+      og.setAttribute("property", "og:url");
+      document.head.appendChild(og);
+    }
+    og.content = href;
+  }, [pathname]);
+  return null;
 }
 
 function RootComponent() {
