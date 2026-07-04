@@ -17,6 +17,7 @@ import { Route as InstagramMarketingAgencyMumbaiGuideRouteImport } from './route
 import { Route as HowToChooseSocialMediaAgencyMumbaiRouteImport } from './routes/how-to-choose-social-media-agency-mumbai'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesWhatsappMarketingMumbaiRouteImport } from './routes/services.whatsapp-marketing-mumbai'
 import { Route as ServicesWebsiteDevelopmentMumbaiRouteImport } from './routes/services.website-development-mumbai'
@@ -69,6 +70,11 @@ const BlogRoute = BlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -108,6 +114,7 @@ const ServicesInstagramMarketingMumbaiRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/contact': typeof ContactRoute
   '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
   '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/contact': typeof ContactRoute
   '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
   '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/contact': typeof ContactRoute
   '/how-to-choose-social-media-agency-mumbai': typeof HowToChooseSocialMediaAgencyMumbaiRoute
   '/instagram-marketing-agency-mumbai-guide': typeof InstagramMarketingAgencyMumbaiGuideRoute
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog'
+    | '/blog/$slug'
     | '/contact'
     | '/how-to-choose-social-media-agency-mumbai'
     | '/instagram-marketing-agency-mumbai-guide'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/blog'
+    | '/blog/$slug'
     | '/contact'
     | '/how-to-choose-social-media-agency-mumbai'
     | '/instagram-marketing-agency-mumbai-guide'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/blog'
+    | '/blog/$slug'
     | '/contact'
     | '/how-to-choose-social-media-agency-mumbai'
     | '/instagram-marketing-agency-mumbai-guide'
@@ -208,6 +220,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   ContactRoute: typeof ContactRoute
   HowToChooseSocialMediaAgencyMumbaiRoute: typeof HowToChooseSocialMediaAgencyMumbaiRoute
   InstagramMarketingAgencyMumbaiGuideRoute: typeof InstagramMarketingAgencyMumbaiGuideRoute
@@ -224,6 +237,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/social-media-marketing-for-restaurants-mumbai': {
       id: '/social-media-marketing-for-restaurants-mumbai'
       path: '/social-media-marketing-for-restaurants-mumbai'
@@ -328,6 +348,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
+  BlogSlugRoute: BlogSlugRoute,
   ContactRoute: ContactRoute,
   HowToChooseSocialMediaAgencyMumbaiRoute:
     HowToChooseSocialMediaAgencyMumbaiRoute,
