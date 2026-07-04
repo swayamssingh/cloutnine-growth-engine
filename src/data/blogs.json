@@ -64,5 +64,16 @@
     "metaDescription": "Testing the admin panel publish function.",
     "content": "<h2>This is a test.</h2><div>my name is swayam&nbsp;</div>",
     "date": "2026-07-03T22:18:51.251Z"
+  },
+  {
+    "title": "testing",
+    "slug": "testing",
+    "category": "testing",
+    "eyebrow": "na",
+    "readTime": "2mins",
+    "metaTitle": "testing",
+    "metaDescription": "tesing1234",
+    "content": "testing1234567",
+    "date": "2026-07-04T06:58:40.494Z"
   }
 ]
