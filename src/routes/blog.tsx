@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import blogsData from "@/data/blogs.json";
 
@@ -6,9 +6,20 @@ export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
       { title: "Insights — Social Media, Ads & Growth | CloutNine Mumbai" },
-      { name: "description", content: "Playbooks, teardowns and frameworks for social media marketing, Meta Ads and growth — written by the CloutNine team in Mumbai." },
-      { property: "og:title", content: "CloutNine Insights — Social Media & Growth Playbooks" },
-      { property: "og:description", content: "Playbooks, teardowns and frameworks from a Mumbai performance agency." },
+      {
+        name: "description",
+        content:
+          "Playbooks, teardowns and frameworks for social media marketing, Meta Ads and growth — written by the CloutNine team in Mumbai.",
+      },
+      {
+        property: "og:title",
+        content: "CloutNine Insights — Social Media & Growth Playbooks",
+      },
+      {
+        property: "og:description",
+        content:
+          "Playbooks, teardowns and frameworks from a Mumbai performance agency.",
+      },
     ],
   }),
   component: Blog,
@@ -16,6 +27,7 @@ export const Route = createFileRoute("/blog")({
 
 function Blog() {
   const posts = [...blogsData].reverse();
+
   return (
     <>
       <section className="border-b border-[color:var(--color-hairline)] grain">
@@ -30,6 +42,7 @@ function Blog() {
           </p>
         </div>
       </section>
+
       <Section className="!py-20">
         <div className="divide-y divide-[color:var(--color-hairline)] border-y border-[color:var(--color-hairline)]">
           {posts.map((p) => (
@@ -47,17 +60,26 @@ function Blog() {
                   {p.title}
                 </h3>
               </div>
-              <span className="text-sm text-muted-foreground shrink-0">Read →</span>
+              <span className="text-sm text-muted-foreground shrink-0">
+                Read →
+              </span>
             </Link>
           ))}
         </div>
+
         <p className="mt-12 text-sm text-muted-foreground">
           More long-form drops every week. Want them by WhatsApp?{" "}
-          <Link to="/contact" className="text-primary underline-offset-4 hover:underline">
+          <Link
+            to="/contact"
+            className="text-primary underline-offset-4 hover:underline"
+          >
             Subscribe here
-          </Link>.
+          </Link>
+          .
         </p>
       </Section>
+
+      <Outlet />
     </>
   );
 }

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/site/ArticleLayout";
 import blogsData from "@/data/blogs.json";
 
-export const Route = createFileRoute("/blog/$slug")({
+export const Route = createFileRoute("/blog_/$slug")({
   head: ({ params }) => {
     const post = blogsData.find((b) => b.slug === params.slug);
     return {
