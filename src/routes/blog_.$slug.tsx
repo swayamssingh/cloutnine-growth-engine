@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/site/ArticleLayout";
-import blogsData from "@/data/blogs.json";
+import { supabase, type Blog } from "@/lib/supabase";
 
 function renderContent(raw: string): string {
   const lines = raw.split("\n");
@@ -17,7 +17,6 @@ function renderContent(raw: string): string {
       continue;
     }
 
-    // Already HTML — pass through untouched
     if (line.startsWith("<")) {
       if (inOl) { output.push("</ol>"); inOl = false; }
       if (inUl) { output.push("</ul>"); inUl = false; }
@@ -25,7 +24,6 @@ function renderContent(raw: string): string {
       continue;
     }
 
-    // H2
     if (/^H2:\s*/i.test(line)) {
       if (inOl) { output.push("</ol>"); inOl = false; }
       if (inUl) { output.push("</ul>"); inUl = false; }
@@ -33,7 +31,6 @@ function renderContent(raw: string): string {
       continue;
     }
 
-    // H3
     if (/^H3:\s*/i.test(line)) {
       if (inOl) { output.push("</ol>"); inOl = false; }
       if (inUl) { output.push("</ul>"); inUl = false; }
@@ -41,7 +38,6 @@ function renderContent(raw: string): string {
       continue;
     }
 
-    // P
     if (/^P:\s*/i.test(line)) {
       if (inOl) { output.push("</ol>"); inOl = false; }
       if (inUl) { output.push("</ul>"); inUl = false; }
@@ -49,21 +45,18 @@ function renderContent(raw: string): string {
       continue;
     }
 
-    // Numbered list label
     if (/^Numbered list[:\s]*/i.test(line)) {
       if (inUl) { output.push("</ul>"); inUl = false; }
       if (!inOl) { output.push("<ol>"); inOl = true; }
       continue;
     }
 
-    // Bullet list label
     if (/^Bullet list[:\s]*/i.test(line)) {
       if (inOl) { output.push("</ol>"); inOl = false; }
       if (!inUl) { output.push("<ul>"); inUl = true; }
       continue;
     }
 
-    // Numbered list item
     if (/^\d+\.\s+/.test(line)) {
       if (inUl) { output.push("</ul>"); inUl = false; }
       if (!inOl) { output.push("<ol>"); inOl = true; }
@@ -71,7 +64,6 @@ function renderContent(raw: string): string {
       continue;
     }
 
-    // Bullet list item
     if (/^[-•*]\s+/.test(line)) {
       if (inOl) { output.push("</ol>"); inOl = false; }
       if (!inUl) { output.push("<ul>"); inUl = true; }
@@ -79,7 +71,6 @@ function renderContent(raw: string): string {
       continue;
     }
 
-    // Fallback — treat as paragraph
     if (inOl) { output.push("</ol>"); inOl = false; }
     if (inUl) { output.push("</ul>"); inUl = false; }
     output.push(`<p>${inline(line)}</p>`);
@@ -93,34 +84,40 @@ function renderContent(raw: string): string {
 
 function inline(text: string): string {
   return text
-    // Bold **text**
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    // Italic *text*
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    // Markdown links [text](url)
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-    // Bare placeholder links [text] with no url — highlight so you notice
     .replace(/\[([^\]]+)\]/g, '<a href="/contact">$1</a>');
 }
 
 export const Route = createFileRoute("/blog_/$slug")({
-  head: ({ params }) => {
-    const post = blogsData.find((b) => b.slug === params.slug);
+  head: ({ loaderData }) => {
+    const post = loaderData?.post
     return {
       meta: [
-        { title: post?.metaTitle ?? "Blog | CloutNine" },
-        { name: "description", content: post?.metaDescription ?? "" },
-        { property: "og:title", content: post?.metaTitle ?? "Blog | CloutNine" },
-        { property: "og:description", content: post?.metaDescription ?? "" },
+        { title: post?.meta_title ?? "Blog | CloutNine" },
+        { name: "description", content: post?.meta_description ?? "" },
+        { property: "og:title", content: post?.meta_title ?? "Blog | CloutNine" },
+        { property: "og:description", content: post?.meta_description ?? "" },
       ],
     };
+  },
+  loader: async ({ params }) => {
+    const { data, error } = await supabase
+      .from('blogs')
+      .select('*')
+      .eq('slug', params.slug)
+      .eq('is_published', true)
+      .single()
+
+    if (error) return { post: null }
+    return { post: data as Blog }
   },
   component: BlogPost,
 });
 
 function BlogPost() {
-  const { slug } = Route.useParams();
-  const post = blogsData.find((b) => b.slug === slug);
+  const { post } = Route.useLoaderData()
 
   if (!post) {
     return (

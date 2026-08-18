@@ -18,11 +18,13 @@ import { Route as HowToChooseSocialMediaAgencyMumbaiRouteImport } from './routes
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as ServicesWhatsappMarketingMumbaiRouteImport } from './routes/services.whatsapp-marketing-mumbai'
 import { Route as ServicesWebsiteDevelopmentMumbaiRouteImport } from './routes/services.website-development-mumbai'
 import { Route as ServicesSocialMediaMarketingMumbaiRouteImport } from './routes/services.social-media-marketing-mumbai'
 import { Route as ServicesMetaAdsManagementMumbaiRouteImport } from './routes/services.meta-ads-management-mumbai'
 import { Route as ServicesInstagramMarketingMumbaiRouteImport } from './routes/services.instagram-marketing-mumbai'
+import { Route as CareersSlugRouteImport } from './routes/careers/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
 
 const SocialMediaMarketingForRestaurantsMumbaiRoute =
@@ -75,6 +77,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/careers/',
+  path: '/careers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesWhatsappMarketingMumbaiRoute =
   ServicesWhatsappMarketingMumbaiRouteImport.update({
     id: '/services/whatsapp-marketing-mumbai',
@@ -105,6 +112,11 @@ const ServicesInstagramMarketingMumbaiRoute =
     path: '/services/instagram-marketing-mumbai',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CareersSlugRoute = CareersSlugRouteImport.update({
+  id: '/careers/$slug',
+  path: '/careers/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog_/$slug',
   path: '/blog/$slug',
@@ -122,11 +134,13 @@ export interface FileRoutesByFullPath {
   '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
   '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
+  '/careers/': typeof CareersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -139,11 +153,13 @@ export interface FileRoutesByTo {
   '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
   '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
+  '/careers': typeof CareersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -157,11 +173,13 @@ export interface FileRoutesById {
   '/social-media-marketing-cost-mumbai': typeof SocialMediaMarketingCostMumbaiRoute
   '/social-media-marketing-for-restaurants-mumbai': typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   '/blog_/$slug': typeof BlogSlugRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/services/instagram-marketing-mumbai': typeof ServicesInstagramMarketingMumbaiRoute
   '/services/meta-ads-management-mumbai': typeof ServicesMetaAdsManagementMumbaiRoute
   '/services/social-media-marketing-mumbai': typeof ServicesSocialMediaMarketingMumbaiRoute
   '/services/website-development-mumbai': typeof ServicesWebsiteDevelopmentMumbaiRoute
   '/services/whatsapp-marketing-mumbai': typeof ServicesWhatsappMarketingMumbaiRoute
+  '/careers/': typeof CareersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -176,11 +194,13 @@ export interface FileRouteTypes {
     | '/social-media-marketing-cost-mumbai'
     | '/social-media-marketing-for-restaurants-mumbai'
     | '/blog/$slug'
+    | '/careers/$slug'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
+    | '/careers/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -193,11 +213,13 @@ export interface FileRouteTypes {
     | '/social-media-marketing-cost-mumbai'
     | '/social-media-marketing-for-restaurants-mumbai'
     | '/blog/$slug'
+    | '/careers/$slug'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
+    | '/careers'
   id:
     | '__root__'
     | '/'
@@ -210,11 +232,13 @@ export interface FileRouteTypes {
     | '/social-media-marketing-cost-mumbai'
     | '/social-media-marketing-for-restaurants-mumbai'
     | '/blog_/$slug'
+    | '/careers/$slug'
     | '/services/instagram-marketing-mumbai'
     | '/services/meta-ads-management-mumbai'
     | '/services/social-media-marketing-mumbai'
     | '/services/website-development-mumbai'
     | '/services/whatsapp-marketing-mumbai'
+    | '/careers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -228,11 +252,13 @@ export interface RootRouteChildren {
   SocialMediaMarketingCostMumbaiRoute: typeof SocialMediaMarketingCostMumbaiRoute
   SocialMediaMarketingForRestaurantsMumbaiRoute: typeof SocialMediaMarketingForRestaurantsMumbaiRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  CareersSlugRoute: typeof CareersSlugRoute
   ServicesInstagramMarketingMumbaiRoute: typeof ServicesInstagramMarketingMumbaiRoute
   ServicesMetaAdsManagementMumbaiRoute: typeof ServicesMetaAdsManagementMumbaiRoute
   ServicesSocialMediaMarketingMumbaiRoute: typeof ServicesSocialMediaMarketingMumbaiRoute
   ServicesWebsiteDevelopmentMumbaiRoute: typeof ServicesWebsiteDevelopmentMumbaiRoute
   ServicesWhatsappMarketingMumbaiRoute: typeof ServicesWhatsappMarketingMumbaiRoute
+  CareersIndexRoute: typeof CareersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -300,6 +326,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers/': {
+      id: '/careers/'
+      path: '/careers'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/whatsapp-marketing-mumbai': {
       id: '/services/whatsapp-marketing-mumbai'
       path: '/services/whatsapp-marketing-mumbai'
@@ -335,6 +368,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesInstagramMarketingMumbaiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers/$slug': {
+      id: '/careers/$slug'
+      path: '/careers/$slug'
+      fullPath: '/careers/$slug'
+      preLoaderRoute: typeof CareersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog_/$slug': {
       id: '/blog_/$slug'
       path: '/blog/$slug'
@@ -360,12 +400,14 @@ const rootRouteChildren: RootRouteChildren = {
   SocialMediaMarketingForRestaurantsMumbaiRoute:
     SocialMediaMarketingForRestaurantsMumbaiRoute,
   BlogSlugRoute: BlogSlugRoute,
+  CareersSlugRoute: CareersSlugRoute,
   ServicesInstagramMarketingMumbaiRoute: ServicesInstagramMarketingMumbaiRoute,
   ServicesMetaAdsManagementMumbaiRoute: ServicesMetaAdsManagementMumbaiRoute,
   ServicesSocialMediaMarketingMumbaiRoute:
     ServicesSocialMediaMarketingMumbaiRoute,
   ServicesWebsiteDevelopmentMumbaiRoute: ServicesWebsiteDevelopmentMumbaiRoute,
   ServicesWhatsappMarketingMumbaiRoute: ServicesWhatsappMarketingMumbaiRoute,
+  CareersIndexRoute: CareersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
